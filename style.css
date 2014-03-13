@@ -29,6 +29,11 @@ p {
 	margin: 30px auto;
 }
 
+.social-logo {
+	width: 25px;
+	height: 25px;
+}
+
 .mainDetails {
 	padding: 25px 35px;
 	border-bottom: 2px solid #cf8a05;
