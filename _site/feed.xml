@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Spaghetti and Hammers - Articles</title>
+		<description>A nerds life story</description>
+		<link>http://pedrorijo91.github.io/</link>
+		<atom:link href="http://pedrorijo91.github.io//feed.articles.xml" rel="self" type="application/rss+xml" />
+		
+			
+			<item>
+				<title>And God said: “Let there be light”</title>
+				
+					<description>&lt;p&gt;&lt;span class=&quot;dropcap&quot;&gt;H&lt;/span&gt;ey there,&lt;br&gt;
+ and welcome to my new blog!  &lt;/p&gt;
+</description>
+				
+				<pubDate>Wed, 01 Apr 2015 02:00:00 +0100</pubDate>
+				<link>http://pedrorijo91.github.io//blog/hello-world/</link>
+				<guid isPermaLink="true">http://pedrorijo91.github.io//blog/hello-world/</guid>
+			</item>
+			
+		
+	</channel>
+</rss>
