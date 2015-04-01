@@ -14,5 +14,4 @@ I'm gonna use this blog to communicate with the world and to let you know I am u
 
 Hoping to keep you guys with me!
 
-![alt text][yoda]
-[yoda]: /assets/img/may_the_source_be_with_you_white.png "May the source be with you"
+<p align='center'><img src='/assets/img/may_the_source_be_with_you_white.png' alt='yoda' title='May the source be with you' width='400px'/></p>
