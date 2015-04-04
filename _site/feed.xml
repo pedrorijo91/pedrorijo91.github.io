@@ -3,8 +3,21 @@
 	<channel>
 		<title>Spaghetti and Hammers - Articles</title>
 		<description>A nerds life story</description>
-		<link>http://localhost:4000</link>
-		<atom:link href="http://localhost:4000/feed.articles.xml" rel="self" type="application/rss+xml" />
+		<link>http://pedrorijo91.github.io</link>
+		<atom:link href="http://pedrorijo91.github.io/feed.articles.xml" rel="self" type="application/rss+xml" />
+		
+			
+			<item>
+				<title>April fools jokes</title>
+				
+					<description>&lt;p&gt;&lt;span class=&quot;dropcap&quot;&gt;A&lt;/span&gt;pril 1&lt;sup&gt;st&lt;/sup&gt; is like Xmas for media and tech companies. Every year, companies rush to exhibit theirs most awesome products. A quick Google search reveals hundreds of those tech revolutions launched in this time of the year.&lt;/p&gt;
+</description>
+				
+				<pubDate>Sat, 04 Apr 2015 02:30:00 +0100</pubDate>
+				<link>http://pedrorijo91.github.io/blog/april-fools/</link>
+				<guid isPermaLink="true">http://pedrorijo91.github.io/blog/april-fools/</guid>
+			</item>
+			
 		
 			
 			<item>
@@ -15,8 +28,8 @@
 </description>
 				
 				<pubDate>Wed, 01 Apr 2015 02:00:00 +0100</pubDate>
-				<link>http://localhost:4000/blog/hello-world/</link>
-				<guid isPermaLink="true">http://localhost:4000/blog/hello-world/</guid>
+				<link>http://pedrorijo91.github.io/blog/hello-world/</link>
+				<guid isPermaLink="true">http://pedrorijo91.github.io/blog/hello-world/</guid>
 			</item>
 			
 		
