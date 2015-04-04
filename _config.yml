@@ -16,10 +16,13 @@ navigation:
    url: /about.html
 
 email: pedrorijo91@gmail.com
+skype_username: pedrorij91
 twitter_username: pedrorijo91
 github_username:  pedrorijo91
+bitbucket_username: pedrorijo91
 linkedin_username: pedrorijo91
 hackernews_username: pedrorijo91
+stackoverflow_username: 4398050/pedrorijo91
 
 gems:
   - jekyll-mentions
