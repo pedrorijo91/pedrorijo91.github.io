@@ -8,6 +8,19 @@
 		
 			
 			<item>
+				<title>Bulletproof Commits</title>
+				
+					<description>&lt;p&gt;&lt;span class=&quot;dropcap&quot;&gt;H&lt;/span&gt;ave you ever committed code that made you feel ashamed? Maybe, for instance, a print statement you used for debugging just because you were too lazy to use the debugger? Maybe you even had that crazy idea of using a &lt;em&gt;not so pretty&lt;/em&gt; print message? (Don&amp;#39;t worry, we all felt desperate to that point.)&lt;/p&gt;
+</description>
+				
+				<pubDate>Tue, 28 Apr 2015 13:00:00 +0100</pubDate>
+				<link>http://pedrorijo91.github.io/blog/bulletproof-commits/</link>
+				<guid isPermaLink="true">http://pedrorijo91.github.io/blog/bulletproof-commits/</guid>
+			</item>
+			
+		
+			
+			<item>
 				<title>Github Stars</title>
 				
 					<description>&lt;p&gt;&lt;span class=&quot;dropcap&quot;&gt;R&lt;/span&gt;ecently &lt;a href=&quot;http://google-opensource.blogspot.pt/2015/03/farewell-to-google-code.html&quot;&gt;Google announced that it would shut down Google Code project&lt;/a&gt;. The decision was somehow obvious if we look at the &lt;a href=&quot;https://github.com/about/press&quot;&gt;current numbers for Github&lt;/a&gt; or &lt;a href=&quot;https://blog.bitbucket.org/2015/02/05/bitbucket-2014-in-review/&quot;&gt;the 2014 stats for Bitbucket&lt;/a&gt;.&lt;/p&gt;

@@ -44,10 +44,10 @@ Have you ever heard about [Julia](https://github.com/JuliaLang/julia), a new pro
 ### FizzBuzzEnterpriseEdition
 We all have worked before with one of those guys who simply loves to overkill in simple tasks. Why should someone use a dozen of frameworks for task that could be done with a small command line application? Even worst, many enterprise software solutions try to adopt high software quality standards and design principles, leading to non-sense implementations. 
 
-[FizzBuzzEnterpriseEdition](https://github.com/EnterpriseQualityCoding/FizzBuzzEnterpriseEdition) is a open source project where everyone can implement more *'good software development pratices'*.
-Why shouldn't someone replace all numbers in the code by constants? Why shouldn't someone use a factory to get the objects? Or why shouldn't someone use a the adapter pattern to get the behavior from different classes?
+[FizzBuzzEnterpriseEdition](https://github.com/EnterpriseQualityCoding/FizzBuzzEnterpriseEdition) is a open source project where everyone can implement more *'good software development practices'*.
+Why shouldn't someone replace all numbers in the code by constants? Why shouldn't someone use a factory to get the objects? Or why shouldn't someone use a the adapter pattern to get the behaviour from different classes?
 
-It seems to be no limit for good software development pratices... 
+It seems to be no limit for good software development practices... 
 
 ### illacceptanything
 Another open source comedy project, [illacceptanything](https://github.com/illacceptanything/illacceptanything) relies on other contributors to create the most random project ever. Commit anything you want to the repository and observe a mixing of webs most funny gif's, videos, and etc.
