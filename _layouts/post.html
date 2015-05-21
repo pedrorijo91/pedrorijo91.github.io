@@ -14,6 +14,9 @@ layout: default
 	{{ content }}
 	</div>
 
+	<a href="https://twitter.com/share" class="twitter-share-button" data-via="pedrorijo91" data-size="large">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
 	<!-- POST NAVIGATION -->
 	<div class="postNav clearfix">
 	  {% if page.previous.url %}
@@ -32,7 +35,7 @@ layout: default
 	  {% endif %}
 	</div>
 
-		<div id="disqus_thread"></div>
+	<div id="disqus_thread"></div>
 	  <script type="text/javascript">
 	      var disqus_shortname = 'pedrorijo91';
 				var disqus_identifier = "{{ page.url }}";
