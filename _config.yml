@@ -14,6 +14,10 @@ navigation:
    url: /index.html
  - title: About
    url: /about.html
+ - title: Books
+   url: /books.html
+ - title: Projects
+   url: /projects.html
 
 email: pedrorijo91@gmail.com
 skype_username: pedrorij91
