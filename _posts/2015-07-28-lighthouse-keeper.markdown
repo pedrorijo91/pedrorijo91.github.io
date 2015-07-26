@@ -2,7 +2,7 @@
 layout: post
 
 title:  'Lighthouse keeper - yet another ping'
-date:   2015-07-28 15:15:00
+date:   2015-07-26 20:00:00
 image: lighthouse-keeper.jpg
 
 tags: [projects]
