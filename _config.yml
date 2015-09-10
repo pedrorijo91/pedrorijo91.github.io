@@ -32,3 +32,4 @@ devport_username: pedrorijo91
 gems:
   - jekyll-mentions
   - jemoji
+  - jekyll-feed
