@@ -1,7 +1,7 @@
 name: Spaghetti and Hammers
 description: A nerds life story
 
-url: http://pedrorijo91.github.io
+url: https://pedrorijo91.github.io
 paginate_path: "blog/page:num/"
 permalink: blog/:title/
 
