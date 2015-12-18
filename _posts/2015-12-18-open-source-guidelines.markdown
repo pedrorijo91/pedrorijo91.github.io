@@ -2,7 +2,7 @@
 layout: post
 
 title:  'Open Source Development: a few guidelines'
-date:   2015-12-19 00:10:00
+date:   2015-12-18 00:10:00
 image: openSource.jpg
 
 
