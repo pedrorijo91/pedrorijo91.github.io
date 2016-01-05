@@ -1,7 +1,7 @@
 ---
 layout: post
 
-title:  'Saving JSON responses to your model'
+title:  'Saving JSON responses to your model in Scala'
 date:   2016-01-05 20:00:00
 image:  json-logo.png
 
@@ -212,6 +212,25 @@ There are two alternatives:
     ```
 
     This custom Reads maps each JSON field to the case class constructor, allowing you to keep a nice case class, while creating instances directly from JSON objects.
+
+Yet another problem, what about APIs returning JSON with optional fields? What if the `isAlive` field is not always present? Then the solution would be to use `readNullable` and make the field optional:
+
+```scala
+case class User(username: String, friends: Int, enemies: Int, isAlive: Option[Boolean])
+
+object User {
+
+  import play.api.libs.functional.syntax._
+  import play.api.libs.json._
+
+  implicit val userReads: Reads[User] = (
+      (JsPath \ "username").read[String] and
+      (JsPath \ "friends").read[Int] and
+      (JsPath \ "enemies").read[Int] and
+      (JsPath \ "is_alive").readNullable[Boolean]
+    ) (User.apply _)
+}
+```
 
 Now you can map JSON answers to your model and deal with that information with all the benefits Scala provides.
 
