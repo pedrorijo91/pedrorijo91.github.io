@@ -68,7 +68,7 @@ Besides the User, we'll need a case class for the form submitted data (UserFormD
 
 Besides that, we'll create a service layer. This is not strictly necessary, but it's a good practice to have a service layer that's responsible to get and manipulate the information the controller needs. In our case it is so simple that we'll omit it, but you can check it on [Github](https://github.com/pedrorijo91/play-slick3-steps/blob/master/app/services/UserService.scala).
 
-```Scala
+```scala
 case class User(id: Long, firstName: String, lastName: String, mobile: Long, email: String)
 
 case class UserFormData(firstName: String, lastName: String, mobile: Long, email: String)
@@ -111,7 +111,7 @@ object Users {
 
 Now it's time to add the endpoints to which the application will respond. 
 
-```Scala
+```scala
 class ApplicationController extends Controller {
 
   def index: Action[AnyContent] = Action { implicit request =>
@@ -190,7 +190,7 @@ Now it's time to convert our models to slick objects, i.e. provide information f
 
 In our case, we want to map the `User` class/instances. Our case class will suffer no changes, but we need to create another class that tells slick how to map. I like to name those classes something like `XTableDef`, where `X` is the name of the model (case) class, but you can give them different names.
 
-```Scala
+```scala
 class UserTableDef(tag: Tag) extends Table[User](tag, "user") {
 
   def id = column[Long]("id", O.PrimaryKey,O.AutoInc)
@@ -210,19 +210,19 @@ Now we also need to adapt our `Users` object, that was used to make the queries.
 
 To get the database object we can write
 
-```Scala
+```scala
 val dbConfig = DatabaseConfigProvider.get[JdbcProfile](Play.current)
 ```
 
 We'll also need to create a table query. This table query object will map to the table, meaning all queries are done through this object
 
-```Scala
+```scala
 val users = TableQuery[UserTableDef]
 ```
 
 Now we'll rewrite the methods to use the database instead of the in-memory sequence holding all users. This will change the methods signature, leading to changes in the service and possibly controllers.
 
-```Scala
+```scala
 object Users {
 
   val dbConfig = DatabaseConfigProvider.get[JdbcProfile](Play.current)
