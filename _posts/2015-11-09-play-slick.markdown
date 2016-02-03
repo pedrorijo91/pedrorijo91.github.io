@@ -51,9 +51,9 @@ After installing everything you need, make sure you have MySQL server running, a
 
 Now it's time to start creating our app. The simplest way to do it is to run: 
 
-```
+~~~ 
 activator new application-name play-scala
-```
+~~~
 
 specifying your application name by replacing *application-name* by the desired name.
 If you opted by not installing activator you can create a sbt project manually, adding the dependencies and the [correct folder structure](https://www.playframework.com/documentation/2.0/Anatomy).
@@ -68,7 +68,7 @@ Besides the User, we'll need a case class for the form submitted data (UserFormD
 
 Besides that, we'll create a service layer. This is not strictly necessary, but it's a good practice to have a service layer that's responsible to get and manipulate the information the controller needs. In our case it is so simple that we'll omit it, but you can check it on [Github](https://github.com/pedrorijo91/play-slick3-steps/blob/master/app/services/UserService.scala).
 
-```scala
+~~~scala
 case class User(id: Long, firstName: String, lastName: String, mobile: Long, email: String)
 
 case class UserFormData(firstName: String, lastName: String, mobile: Long, email: String)
@@ -105,13 +105,13 @@ object Users {
   def listAll: Seq[User] = users
 
 }
-```
+~~~
 
 ####2. Add the controllers 
 
 Now it's time to add the endpoints to which the application will respond. 
 
-```scala
+~~~scala
 class ApplicationController extends Controller {
 
   def index: Action[AnyContent] = Action { implicit request =>
@@ -136,15 +136,15 @@ class ApplicationController extends Controller {
   }
 
 }
-```
+~~~
 
 Besides the controller you'll also need to configure the [routes file](https://github.com/pedrorijo91/play-slick3-steps/blob/master/conf/routes):
 
-```
+~~~
 GET     /                           controllers.ApplicationController.index
 POST    /add                        controllers.ApplicationController.addUser
 GET     /delete/:id                 controllers.ApplicationController.deleteUser(id : Long)
-```
+~~~
 
 
 ####3. And don't forget about the views
@@ -163,11 +163,11 @@ This was the first part. Now it's time to configure the database for our applica
 
 Of course, first we'll need to declare some dependencies to use slick, play-slick, and mysql - the chosen database for us. Add these 3 dependencies to your `build.sbt`
 
-```
+~~~
  "mysql" % "mysql-connector-java" % "5.1.34"
  "com.typesafe.play" %% "play-slick" % "1.1.0"
  "com.typesafe.play" %% "play-slick-evolutions" % "1.1.0"
-```
+~~~
 
 Also, if you have a `jdbc` dependency declared in your `build.sbt` file, remove it, or it will cause some errors in the compilation.
 
@@ -176,13 +176,13 @@ Also, if you have a `jdbc` dependency declared in your `build.sbt` file, remove 
 We need to specify how will the play application connect to the database.
 The following lines specify the database driver, in this case MySQL, the database and its user/password. Whatever the name you choose to the database (if you prefer other name to `playScalaSlickExample`), make sure it exists before starting the application.
 
-```
+~~~
 slick.dbs.default.driver = "slick.driver.MySQLDriver$"
 slick.dbs.default.db.driver = "com.mysql.jdbc.Driver"
 slick.dbs.default.db.url = "jdbc:mysql://localhost/playScalaSlickExample"
 slick.dbs.default.db.user = "root"
 slick.dbs.default.db.password = ""
-```
+~~~
 
 ####2. Integrate our models with slick
 
@@ -190,7 +190,7 @@ Now it's time to convert our models to slick objects, i.e. provide information f
 
 In our case, we want to map the `User` class/instances. Our case class will suffer no changes, but we need to create another class that tells slick how to map. I like to name those classes something like `XTableDef`, where `X` is the name of the model (case) class, but you can give them different names.
 
-```scala
+~~~scala
 class UserTableDef(tag: Tag) extends Table[User](tag, "user") {
 
   def id = column[Long]("id", O.PrimaryKey,O.AutoInc)
@@ -202,7 +202,7 @@ class UserTableDef(tag: Tag) extends Table[User](tag, "user") {
   override def * =
     (id, firstName, lastName, mobile, email) <>(User.tupled, User.unapply)
 }
-```
+~~~
 
 Note that the *O.PrimaryKey* and *O.AutoInc* constants indicate Slick that the *id* column is the primary key, and it should be incremented by the database itself.
 
@@ -210,19 +210,19 @@ Now we also need to adapt our `Users` object, that was used to make the queries.
 
 To get the database object we can write
 
-```scala
+~~~scala
 val dbConfig = DatabaseConfigProvider.get[JdbcProfile](Play.current)
-```
+~~~
 
 We'll also need to create a table query. This table query object will map to the table, meaning all queries are done through this object
 
-```scala
+~~~scala
 val users = TableQuery[UserTableDef]
-```
+~~~
 
 Now we'll rewrite the methods to use the database instead of the in-memory sequence holding all users. This will change the methods signature, leading to changes in the service and possibly controllers.
 
-```scala
+~~~scala
 object Users {
 
   val dbConfig = DatabaseConfigProvider.get[JdbcProfile](Play.current)
@@ -247,7 +247,7 @@ object Users {
     dbConfig.db.run(users.result)
   }
 }
-```
+~~~
 
 ####3. Add database evolution
 
@@ -256,15 +256,15 @@ Since the database should be empty for now, evolutions will take care of adding 
 
 [Play evolutions](https://www.playframework.com/documentation/2.4.x/Evolutions) include a `Ups` and a `Downs` sections. The `Downs` section can be applied if Play thinks something went wrong and needs to rollback. You can disable this feature - may be danger to have downs in production - in the configurations with
 
-```
+~~~
 play.evolutions.autoApplyDowns=false
-```
+~~~
 
 The evolution scripts should be in the directory `conf/evolutions/%databaseName%` with the name of the scripts stating at **1.sql**, incrementing at each evolution. Play keeps track of which evolutions has already applied in a table called *play_evolutions*. 
 
 Our evolution script, `1.sql`:
 
-```
+~~~
 # User schema
 
 # --- !Ups
@@ -278,7 +278,7 @@ create table `user` (
 
 # --- !Downs
 drop table `user`
-```
+~~~
 
 ### Play with it
 

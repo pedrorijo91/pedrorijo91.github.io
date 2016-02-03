@@ -38,8 +38,7 @@ I started to play regularly with some friends recently, and we started to felt s
 * But now we have a set of tickets we play each week. And the app only checks for one ticket at the time. So, if we want to check all the tickets, we would need to introduce one ticket at a time...
 
 
-So, how to solve it? Make an [EuroMillions project](https://github.com/pedrorijo91/euromillions-generator) able to solve all these problems !</br>
-<sub>Actually, all these problems could be avoided if we just played online, but we don't like it a lot :)</sub>
+So, how to solve it? Make an [EuroMillions project](https://github.com/pedrorijo91/euromillions-generator) able to solve all these problems ! Actually, all these problems could be avoided if we just played online, but we don't like it a lot :)
 
 
 <p align='center'><img src='/assets/img/euromillions-github.png' alt='euromillions repository' title='euromillions repository' width='800px'/></p>

@@ -19,15 +19,15 @@ JSON is built on two structures:
 
 A JSON object can be as simple as
 
-```json
+~~~json
 {
   "key": "value"
 }
-```
+~~~
 
 containing just a simple key and value pair - in the limit, it could also be an empty set of key-values pair - or as complex as one wishes it:
 
-```json
+~~~json
 {
   "widget" : {
     "debug" : "on",
@@ -56,7 +56,7 @@ containing just a simple key and value pair - in the limit, it could also be an 
     }
   }
 }
-```
+~~~
 
 There are [many other examples available](http://json.org/example.html).
 
@@ -70,7 +70,7 @@ In most cases you will want to access and save information contained on the JSON
 
 For this example we will use [GitHub API](https://developer.github.com/v3/). If you access [my user endpoint](https://api.github.com/users/pedrorijo91) you will get information about my user, in JSON. You should get something like:
 
-```json
+~~~json
 {
   "login": "pedrorijo91",
   "id": 1999050,
@@ -103,27 +103,27 @@ For this example we will use [GitHub API](https://developer.github.com/v3/). If 
   "created_at": "2012-07-18T14:34:35Z",
   "updated_at": "2016-01-05T00:02:37Z"
 }
-```
+~~~
 
 Now let's parse it. Suppose this answer is saved in a value named `jsonString`, then all you need to do is:
 
-```scala
+~~~scala
 import play.api.libs.json.Json
 val jsonObject = Json.parse(jsonString)
-```
+~~~
 
 and you will get the JSON object, ready to be easily queried. The easiest way to access fields is using the `'\'` operator.
 For instance, to get the `login` field you just need to write:
 
-```scala
+~~~scala
 val login = jsonObject \ "login"
-```
+~~~
 
 and you will get a `JsValue` with the value `pedrorijo91`. You can now convert this to a `String`, or any other type, using:
 
-```scala
+~~~scala
 login.as[String]
-```
+~~~
 
 > Note: when testing, it may be useful to experiment on the sbt console, and when saving the JSON strings in a value, the [triple quote](http://www.scala-lang.org/old/node/5514) may be handy
 
@@ -133,38 +133,38 @@ That was the first part. What about saving the information? You probably want to
 
 Imagine that some API returned the following answer:
 
-```json
+~~~json
 {
   "username": "pedrorijo91",
   "friends": 100,
   "enemies": 10,
   "isAlive": "true"
 }
-```
+~~~
 
 and you have the following model:
 
-```scala
+~~~scala
 case class User(username: String, friends: Int, enemies: Int, isAlive: Boolean)
-```
+~~~
 
 To easily convert your JSON object to an `User`, add the companion object with an implicit formatter:
 
-```scala
+~~~scala
 case class User(username: String, friends: Int, enemies: Int, isAlive: Boolean)
 
 object User {
   implicit val userJsonFormat = Json.format[User]
 }
-```
+~~~
 
 Now, if you simply do:
 
-```scala
+~~~scala
 val jsonString = """ {"username":"pedrorijo91","friends":100,"enemies":10,"isAlive":"true"} """
 val jsonObject = Json.parse(jsonString)
 jsonObject.as[User]
-```
+~~~
 
 You will get an `User` with the expected fields defined. You can get to know more on the [official documentation](https://www.playframework.com/documentation/2.4.x/ScalaJson#JsValue-to-a-model)
 
@@ -176,25 +176,25 @@ Unfortunately, some APIs we deal with, are not as nice. Suppose that instead of 
 
 There are two alternatives:
 
-1. Adapt the case class
+1.  Adapt the case class
 
     Instead of a a `isAlive` we can name the class field `is_alive`
 
-    ```scala
+    ~~~scala
     case class User(username: String, friends: Int, enemies: Int, is_alive: Boolean)
-    ```
+    ~~~
 
     This creates an awful field accessor (`is_alive`). One solution may be to hide that accessor, creating a wrapper. Add the `private` qualifier and create a wrapper method:
 
-    ```scala
+    ~~~scala
     case class User(username: String, friends: Int, enemies: Int, private val is_alive: Boolean) {
       def isAlive: Boolean = is_alive
     }
-    ```
+    ~~~    
 
-2. Create a custom Reads on the companion object
+2.  Create a custom Reads on the companion object
 
-    ```scala
+    ~~~scala
     case class User(username: String, friends: Int, enemies: Int, isAlive: Boolean)
 
     object User {
@@ -209,13 +209,14 @@ There are two alternatives:
           (JsPath \ "is_alive").read[Boolean]
         ) (User.apply _)
     }
-    ```
+    ~~~
 
     This custom Reads maps each JSON field to the case class constructor, allowing you to keep a nice case class, while creating instances directly from JSON objects.
 
+
 Yet another problem, what about APIs returning JSON with optional fields? What if the `isAlive` field is not always present? Then the solution would be to use `readNullable` and make the field optional:
 
-```scala
+~~~scala
 case class User(username: String, friends: Int, enemies: Int, isAlive: Option[Boolean])
 
 object User {
@@ -230,7 +231,7 @@ object User {
       (JsPath \ "is_alive").readNullable[Boolean]
     ) (User.apply _)
 }
-```
+~~~
 
 Now you can map JSON answers to your model and deal with that information with all the benefits Scala provides.
 
