@@ -1,0 +1,53 @@
+---
+layout: post
+
+title:  'Git Pro - Book review'
+date:   2016-02-13 14:30:00
+image:  git-pro-cover.jpg
+
+
+tags: [tutorials]
+---
+<span class="dropcap">G</span>it is a [VCS](https://en.wikipedia.org/wiki/Version_control) that has become widely used, both in open source and private projects.
+
+[Git](https://git-scm.com/) is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency.
+
+As a developer, I like to learn and understand about the tools I use on a daily basis. Git is, perhaps, one of the most interesting and powerful tools I got to use. Even though I struggled when starting using git, nowadays I feel pretty comfortable using it. In fact, it is not uncommon to find myself looking at some random git manual page finding a new command that I was unaware it existed.
+
+At [Codacy](https://www.codacy.com), git is everywhere. We depend on git to receive the projects to analyse, to find new changes, to extract the exact changes between chunks of work, to understand who introduced which specific line of code, and much more.
+
+Only recently (shame on me) I found out that there is a really nice book about git (open source of course - at least the digital version), [Pro Git](http://git-scm.com/book/en/v2). As soon as I found out, I downloaded the free ebook, and started reading it (protip: both authors work at [Github](https://github.com/), so expect Github dedicated pages).
+
+### The book
+
+The first couple of chapters are pretty much the history and some fundamental concepts, like what is a commit, and some basic commands, nothing really interesting if you have already seen git in action.
+
+The 3rd chapter starts to get more interesting. It is all about what the author calls the 'git killer feature' - its branching model. It explains why is git able to get such an high performance switching branches, making it painless even in really large projects. It also approaches several typical development workflows when using git and branches. Even if the presented models are reasonable and widely used I would say that such choice should be made from your real life experience using git. In some projects/companies you may need to refine the existing workflow so it suits better to your use case. Just keep in mind that there is no unique correct model, reflect and take into account what each different workflow may bring to your project.
+
+Continuing the same line of thoughts, the next chapters approach workflow details and configurations. While the 4th chapter focus data transfer protocols and setting up your own git server (who does this when [Github](https://github.com/), [Bitbucket](https://bitbucket.org/), [Gitlab](https://about.gitlab.com/) offer web and self hosted versions nowadays?), the 5th chapter is all about dealing with other contributors, from both contributor project and project maintainer point of view (if you are interesting on this subject, you may want to have a look at my [post about open source guidelines](http://pedrorijo.com/blog/open-source-guidelines/)).
+
+The 6th chapter provides an overview on Github (I told you so). IMHO, it is pretty easy to understand Github by using it, no need for a full chapter on that, specially when the UI has been changing and the book has outdated images.
+
+Chapter 7 was probably the most interesting chapter on the book. Named 'Git tools', it introduces several git commands that you probably did not knew they exist. Some of the commands are not advanced features, and most of git users already used them, like `git stash`. Other available commands, like [`git bisect`](https://git-scm.com/docs/git-bisect), are extremely useful, and avoid a lot of manual work when digging for the modification that caused a bug. Signing commits and releases, rewrite history, git submodules, and many other git features are presented in this chapter. You probably won't remember how to use them, but at least you know what to find when the time comes. 
+
+Furthermore, reset and merge topics are deepened, demystifying some of the most feared features - some of the few features which can delete information irreversibly when using git.
+The most interesting feature approached in this chapter, for me, it is probably [Git Rerere](https://git-scm.com/docs/git-rerere). I never heard of such feature until now, but Git Rerere tries to learn how to solve conflicts from previous manual resolutions by the author. Risky, but really tempted to give it a try. It seems to pay off when implementing a bug feature on a feature branch that needs to be continually updated (through merge or rebase) with the main branch. 
+
+Reaching to the final chapters of the book, we get to the 8th chapter, Customising Git. It is useful to learn how to automate your own workflow, creating aliases, easing authentication, setting up hooks, and so on. Other not so used configurations, provided by .gitattributes file, are also approached. Among many possibilities, .gitattributes file allows to configure how to diff specific files, or specific merge strategies. I am not using those features yet, but I want to invest some time in the next couple of weeks to find out if it is worthy.
+
+From this chapter I was able to increase my own `.gitconfig` file, with several aliases. This file is one of the reasons that makes me prefer to use the command line to other GUI alternatives. With the proper aliases you never type to much. With the right configurations/flags you control exactly the actions and the output. Besides the fact that there are several commands not available on GUI alternatives. If you want to, just check my own `.gitconfig`:
+
+<script src="https://gist.github.com/pedrorijo91/65166e70b1fdd8ef3913.js"></script>
+
+
+Chapter number 9 is all about the interaction of Git with other VCS, namely SVN, CVS, and Perforce. I skipped this chapter because I never worked with any VCS other than Git (I did two projects with CVS and SVN on college, but it wasn't a real usage), and (fortunately) I do not have to migrate any project to Git from any other source.
+
+The last chapter is were we start understanding how is Git implemented: it is fully dedicated to implementation decisions and details. It is awesome to learn about Git Objects, hidden commands (what are usually called as plumbing commands), refs, transfer protocols, and how everything else is done underneath our usual commands. Still, this chapter seems just the tip of the iceberg, and I'm pretty sure there's a lot more to explore about the underworld of git.
+
+### Final remarks
+
+In the overall, this is a book that will certainly teach something about git, the most widely used VCS nowadays. It is a book everyone should read if wants to start to use git, or even if it is already using it. 
+
+But, depending on the experience on git, one should choose which chapters to read: there is no advantage in read about all advanced commands and plumbing if you are a started, and there is hardly any knowledge to extract from the beginning chapters for readers already familiarised with git.
+
+I would just like to have more information about git implementation itself, that is briefly described in the last chapter. Nevertheless, there are plenty of other sources to complement those details, like the [git homepage](http://git-scm.com/), the [git repository](https://github.com/git/git), or even the [git mailing list](http://git.661346.n2.nabble.com/).
