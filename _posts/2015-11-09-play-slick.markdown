@@ -8,9 +8,9 @@ image: play-slick-mysql.png
 
 tags: [tutorials]
 ---
-<span class="dropcap">T</span>ypical nowadays applications need to store some persistent data frequently. And when we talk about persistent storage we are talking about databases. Among the most common applications, we have web applications. And it is uncommon to have a web application that does not require persistent storage. 
+<span class="dropcap">T</span>ypical nowadays applications need to store some persistent data frequently. And when we talk about persistent storage we are talking about databases. Among the most common applications, we have web applications. And it is uncommon to have a web application that does not require persistent storage.
 
-Building webapps in Scala is typically done using the [Play framework](https://www.playframework.com/). And for persistent storage, Scala developers typically appeal to [Slick](http://slick.typesafe.com/). Even though it is possible to use Java libraries and frameworks like the well-know [Hibernate](http://hibernate.org/) - described as an *high-performance Object/Relational persistence and query service* - Slick has a Scala-like API, where everything is pretty similar to Scala collections, making Slick way more attractive to Scala developers. 
+Building webapps in Scala is typically done using the [Play framework](https://www.playframework.com/). And for persistent storage, Scala developers typically appeal to [Slick](http://slick.typesafe.com/). Even though it is possible to use Java libraries and frameworks like the well-know [Hibernate](http://hibernate.org/) - described as an *high-performance Object/Relational persistence and query service* - Slick has a Scala-like API, where everything is pretty similar to Scala collections, making Slick way more attractive to Scala developers.
 
 Another difference that should be kept in mind, is that Slick is not an ORM like Hibernate. Slick is more like a functional-relational mapper. And a more detailed difference between Slick and ORMs is available in the [Slick documentation](http://slick.typesafe.com/doc/2.1.0/orm-to-slick.html). Slick also allows the use of multiple backends, meaning that you can use a lot of different databases with slick (H2, MySQL, PostgreSQL, and [many others](http://slick.typesafe.com/doc/3.1.0/supported-databases.html)).
 
@@ -20,14 +20,14 @@ As stated in Slick docs:
 
 ## Webapps with persistent storage
 
-When building a webapp in Scala with persistent storage you will probably think about using Play and Slick together. 
+When building a webapp in Scala with persistent storage you will probably think about using Play and Slick together.
 To achieve that you probably want to use [Play Slick](https://github.com/playframework/play-slick), a Play module that makes Slick a first-class citizen of Play. It consists of two features:
 
 * Integration of Slick into Play's application lifecycle.
 * Support for Play database evolutions.
 
-This module tries to provide an easy way to integrate Play and Slick, but while I was looking for some minimal example I noticed that there was missing some updated example which used `Play 2.4` and `Slick 3.1.0`. 
-Here are the closest examples I've found: 
+This module tries to provide an easy way to integrate Play and Slick, but while I was looking for some minimal example I noticed that there was missing some updated example which used `Play 2.4` and `Slick 3.1.0`.
+Here are the closest examples I've found:
 
 * [Play Slick samples](https://github.com/playframework/play-slick/tree/master/samples), that are pretty hard to reuse due to the [complex sbt setup](https://github.com/playframework/play-slick/issues/278#issuecomment-144388541)
 * An example which combines Play 2.4 and Slick 3, but that uses [HikariCP](http://brettwooldridge.github.io/HikariCP/), and without the use of the Play Slick module, at [https://github.com/wsargent/play-slick-3.0/](https://github.com/wsargent/play-slick-3.0/)
@@ -49,9 +49,9 @@ After installing everything you need, make sure you have MySQL server running, a
 
 ### Making the webapp
 
-Now it's time to start creating our app. The simplest way to do it is to run: 
+Now it's time to start creating our app. The simplest way to do it is to run:
 
-~~~ 
+~~~
 activator new application-name play-scala
 ~~~
 
@@ -62,9 +62,9 @@ At this moment you should have your base template, something like [this](https:/
 
 The next step is to add all the logic and models without using a database. We'll make it using a variable representing the sequence of users (please, never use variables in Scala again). To do that, we'll need to:
 
-####1. Create the model 
+#### 1. Create the model
 
-Besides the User, we'll need a case class for the form submitted data (UserFormData), an object to deal with form submission (UserForm), and a object to answer queries (Users). 
+Besides the User, we'll need a case class for the form submitted data (UserFormData), an object to deal with form submission (UserForm), and a object to answer queries (Users).
 
 Besides that, we'll create a service layer. This is not strictly necessary, but it's a good practice to have a service layer that's responsible to get and manipulate the information the controller needs. In our case it is so simple that we'll omit it, but you can check it on [Github](https://github.com/pedrorijo91/play-slick3-steps/blob/master/app/services/UserService.scala).
 
@@ -90,7 +90,7 @@ object Users {
   var users: Seq[User] = Seq()
 
   def add(user: User): String = {
-    users = users :+ user.copy(id = users.length) // manual id increment 
+    users = users :+ user.copy(id = users.length) // manual id increment
     "User successfully added"
   }
 
@@ -107,9 +107,9 @@ object Users {
 }
 ~~~
 
-####2. Add the controllers 
+#### 2. Add the controllers
 
-Now it's time to add the endpoints to which the application will respond. 
+Now it's time to add the endpoints to which the application will respond.
 
 ~~~scala
 class ApplicationController extends Controller {
@@ -147,7 +147,7 @@ GET     /delete/:id                 controllers.ApplicationController.deleteUser
 ~~~
 
 
-####3. And don't forget about the views
+#### 3. And don't forget about the views
 
 Finally, we'll need to create the view to our application. The view will display a user creation form, and the existent users list.
 
@@ -159,7 +159,7 @@ At this moment you should have something similar to [this code](https://github.c
 
 This was the first part. Now it's time to configure the database for our application. Let's go through each step:
 
-####0. Declare dependencies
+#### 0. Declare dependencies
 
 Of course, first we'll need to declare some dependencies to use slick, play-slick, and mysql - the chosen database for us. Add these 3 dependencies to your `build.sbt`
 
@@ -171,7 +171,7 @@ Of course, first we'll need to declare some dependencies to use slick, play-slic
 
 Also, if you have a `jdbc` dependency declared in your `build.sbt` file, remove it, or it will cause some errors in the compilation.
 
-####1. Add configurations to `conf/application.conf`
+#### 1. Add configurations to `conf/application.conf`
 
 We need to specify how will the play application connect to the database.
 The following lines specify the database driver, in this case MySQL, the database and its user/password. Whatever the name you choose to the database (if you prefer other name to `playScalaSlickExample`), make sure it exists before starting the application.
@@ -184,7 +184,7 @@ slick.dbs.default.db.user = "root"
 slick.dbs.default.db.password = ""
 ~~~
 
-####2. Integrate our models with slick
+#### 2. Integrate our models with slick
 
 Now it's time to convert our models to slick objects, i.e. provide information for slick to map between classes and tables.
 
@@ -249,7 +249,7 @@ object Users {
 }
 ~~~
 
-####3. Add database evolution
+#### 3. Add database evolution
 
 Database evolutions allow you to declare migrations when you add new tables, modify them, or delete some.
 Since the database should be empty for now, evolutions will take care of adding the User table.
@@ -260,7 +260,7 @@ Since the database should be empty for now, evolutions will take care of adding 
 play.evolutions.autoApplyDowns=false
 ~~~
 
-The evolution scripts should be in the directory `conf/evolutions/%databaseName%` with the name of the scripts stating at **1.sql**, incrementing at each evolution. Play keeps track of which evolutions has already applied in a table called *play_evolutions*. 
+The evolution scripts should be in the directory `conf/evolutions/%databaseName%` with the name of the scripts stating at **1.sql**, incrementing at each evolution. Play keeps track of which evolutions has already applied in a table called *play_evolutions*.
 
 Our evolution script, `1.sql`:
 
@@ -284,4 +284,4 @@ drop table `user`
 
 Now everything should be up and running ! Also, the final version is available at [Github](https://github.com/pedrorijo91/play-slick3-steps/tree/step3) in case you want to check something.
 
-Try it out at `localhost:9000`, add more persistent data, and your own slick queries, and start creating your own applications. 
+Try it out at `localhost:9000`, add more persistent data, and your own slick queries, and start creating your own applications.
