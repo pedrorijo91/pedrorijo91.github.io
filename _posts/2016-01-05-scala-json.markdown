@@ -62,11 +62,11 @@ There are [many other examples available](http://json.org/example.html).
 
 ## Scala and JSON
 
-In most cases you will want to access and save information contained on the JSON document. [Play](https://www.playframework.com/) provides a very complete library for dealing with JSON objects, [Play WS](https://www.playframework.com/documentation/2.4.x/ScalaWS).
+In most cases you will want to access and save information contained on the JSON document. [Play](https://www.playframework.com/) provides a very complete library for dealing with JSON objects, [Play JSON](https://www.playframework.com/documentation/2.4.x/ScalaJson).
 
-> Note: If you are not including Play on your dependencies you can just include Play WS with
+> Note: If you are not including Play on your dependencies you can just include Play Json with
 
-> `libraryDependencies += "com.typesafe.play" % "play-ws_2.11" % "2.4.6"`
+> `libraryDependencies += "com.typesafe.play" % "play-json_2.11" % "2.4.6"`
 
 For this example we will use [GitHub API](https://developer.github.com/v3/). If you access [my user endpoint](https://api.github.com/users/pedrorijo91) you will get information about my user, in JSON. You should get something like:
 
