@@ -236,3 +236,8 @@ object User {
 Now you can map JSON answers to your model and deal with that information with all the benefits Scala provides.
 
 What about you? Do you have any other technique for dealing with JSON in Scala?
+
+
+## Follow up
+
+If you want to see more advanced features, check out the follow up on [Saving JSON to Scala model - Part 2](http://pedrorijo.com/blog/scala-json-part2)
