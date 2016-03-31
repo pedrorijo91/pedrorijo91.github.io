@@ -241,3 +241,5 @@ What about you? Do you have any other technique for dealing with JSON in Scala?
 ## Follow up
 
 If you want to see more advanced features, check out the follow up on [Saving JSON to Scala model - Part 2](http://pedrorijo.com/blog/scala-json-part2)
+
+Also, checkout the source code at [GitHub](https://github.com/pedrorijo91/scala-play-json-examples) if you have any doubt.
