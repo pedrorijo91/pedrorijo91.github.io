@@ -1,0 +1,74 @@
+---
+layout: post
+
+title:  'Signing Git commits'
+date:   2016-04-08 21:00:00
+image:  gnupg-logo.png
+
+
+tags: [tutorials]
+---
+<span class="dropcap">L</span>ast week GitHub released another new feature: [GPG signature verification](https://github.com/blog/2144-gpg-signature-verification).
+
+While it may seem something new, [Git already supports signing commits and tags with GPG ](https://git-scm.com/book/en/v2/Git-Tools-Signing-Your-Work). Still, GitHub turned easier to verify if the commit is signed by the author, introducing a badge next to the commit UUID.
+
+<p align='center'><img src='/assets/img/github-gpg-example.png' alt='GitHub verified commit' title='GitHub verified commit' width='500px'/></p>
+
+### How to sign my own commits
+
+If you want GitHub to display your verified commits there are a couple of steps required. [GitHub provides a very good explanation on that](https://help.github.com/articles/generating-a-gpg-key/).
+
+1. Assuming you don't have a GPG key yet, you need to [generate a new one](https://help.github.com/articles/generating-a-new-gpg-key/).
+2. Now that you have a GPG key, [add it to GitHub](https://help.github.com/articles/adding-a-new-gpg-key-to-your-github-account/).
+3. [Configure git](https://help.github.com/articles/telling-git-about-your-gpg-key/) to use your key
+4. Start [signing your commits](https://help.github.com/articles/signing-commits-using-gpg/). It may be useful to define some [git aliases](https://git-scm.com/book/tr/v2/Git-Basics-Git-Aliases) to automate commit signature.
+5. Push to your GitHub repository and see the verification badge.
+
+<p align='center'><img src='/assets/img/github-gpg-commit-list.png' alt='GitHub verified commit list' title='GitHub verified commit list' width='500px'/></p>
+
+### What about now?
+
+Signing your commits is nice, but what for? Well, signing your work provides a guarantee that you did the work. But how can I verify that?
+
+Starting by git itself, the `git log` command contains a [flag to show signatures](https://git-scm.com/book/uz/v2/Git-Tools-Signing-Your-Work#Signing-Commits)
+
+~~~
+$ git log --show-signatures
+commit 5a9a6e3c5089ead02ce4ae4ee5f600626edf04b5
+gpg: Signature made Wed Apr  6 00:22:16 2016 WEST using RSA key ID F17F60C1
+gpg: Good signature from "Pedro Rijo (pedrorijo91) <some-email@mail.com>"
+Author: pedrorijo91 <some-email@mail.com>
+Date:   Wed Apr 6 00:22:16 2016 +0100
+
+    <message>
+
+commit 5c644e7fee2d09dbc177f515c3936ff3e787373c
+Author: Pedro Rijo <some-email@mail.com>
+Date:   Wed Apr 6 00:20:06 2016 +0100
+
+    <message>
+~~~
+
+Git can be told to inspect and reject when merging a commit that does not carry a trusted GPG signature with the `--verify-signatures` command:
+
+~~~
+$ git merge --verify-signatures <non-verified-branch>
+fatal: Commit ab06180 does not have a GPG signature.
+~~~
+
+~~~
+$ git merge --verify-signatures <verified-branch>
+Commit 13ad65e has a good GPG signature by Scott Chacon (Git signing key) &lt;schacon@gmail.com&gt;
+Updating 5c3386c..13ad65e
+Fast-forward
+ README | 2 ++
+ 1 file changed, 2 insertions(+)
+~~~
+
+Unfortunately it seems that GitHub doesn't offer pull-request/commits protection with signature verification yet, so you would have to do it manually.
+
+In the meanwhile, have fun pranking your collegues who still doesn't sign their commits, [faking commits to look as they did it](https://github.com/amoffat/masquerade).
+
+### More about GPG
+
+One question that will probably cross your mind, is how to distribute your public key, so that others can verify your commit signature. I googled a bit and I found [other people with the same question](http://security.stackexchange.com/questions/406/how-should-i-distribute-my-public-key). I found [pgp.mit.edu](https://pgp.mit.edu) nice and I used it myself to distribute [my public key](https://pgp.mit.edu/pks/lookup?op=get&search=0x840BD9EAF17F60C1). Another popular option seems to be [Keybase.io](https://keybase.io/), but I haven't tested yet.
