@@ -8,6 +8,11 @@ task :install do
    sh 'bundle install'
  end
 
+desc 'bundle update'
+task :update do
+   sh 'bundle update'
+ end
+
 desc 'generate drafts'
 task :drafts do
   sh 'bundle exec jekyll serve --drafts'
