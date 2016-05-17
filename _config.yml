@@ -36,3 +36,4 @@ gems:
   - jekyll-feed
   - jekyll-paginate
   - jekyll-github-metadata
+  - jekyll-seo-tag
