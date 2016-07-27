@@ -15,13 +15,13 @@ tags: [tutorials]
 
 <p align='center'><img src='/assets/img/code-review-cartoon.jpg' alt='Code Review' title='Code Review' width='300px'/></p>
 
-This process allows to detect many bugs before went straight into production code. Unfortunately, a [big part of the review comments have to do with code style and bad practices](http://blog.codacy.com/2015/04/08/20-of-code-review-comments-are-about-style-and-best-practices-2/). But most of those changes can be automated, or at least automatically detected.
+This process allows to detect most bugs before they go into productionBut most of those changes can be automated. Unfortunately, a [big part of the review comments have to do with code style and bad practices](http://blog.codacy.com/2015/04/08/20-of-code-review-comments-are-about-style-and-best-practices-2/). But most of those reviews can be automated, or at least the problems can be automatically detected.
 
 In order to reduce the time spent on the review process, several different solutions are available:
 
-* A [formal code style](https://github.com/google/styleguide). Document or/and provide [format settings](https://github.com/google/styleguide/commit/0249a38579160e135cbd7eb5099898611683200e) for the most used IDEs (which can be hard due to the wide range of available text editors/IDEs).
+* A [formal code style](https://github.com/google/styleguide). Document and/or provide [format settings](https://github.com/google/styleguide/commit/0249a38579160e135cbd7eb5099898611683200e) for the most used IDEs (which can be hard due to the wide range of available text editors/IDEs).
 * [Linters](https://en.wikipedia.org/wiki/Lint_(software)) (static analysis tools). Language dependent, every major programming language has some static analysis tool/linter available. [There are hundreds](https://en.wikipedia.org/wiki/List_of_tools_for_static_code_analysis). Furthermore, many online platforms are emerging which provide several static analysis tools making it easy to configure some rules across all your projects. One of them is [Codacy](https://www.codacy.com/).
-* Use the compiler flags itself. This technique is only valid for compiled languages, but compilers often include flags to check some code standards. [gcc](https://gcc.gnu.org/) for instance provides the infamous `-pedantic` and `-Wall` among [many others](https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#Warning-Options)
+* Use the compiler flags itself. This technique is only valid for compiled languages, but compilers often include flags to check some code standards. [gcc](https://gcc.gnu.org/) for instance provides the infamous `-pedantic` and `-Wall` among [many others](https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#Warning-Options).
 
 <p align='center'><img src='/assets/img/compiling.png' alt='Code compiling' title='Code compiling' width='300px'/></p>
 
