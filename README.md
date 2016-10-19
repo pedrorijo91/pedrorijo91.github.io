@@ -1,4 +1,4 @@
-Personal homepage and blog at [pedrorijo91.github.com](http://pedrorijo91.github.io)
+Personal homepage and blog at [pedrorijo.com](http://pedrorijo.com/)
 
 Some useful links:
 * http://jekyllthemes.org/themes/long-haul/
