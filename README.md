@@ -1,4 +1,4 @@
-Personal homepage and blog at [pedrorijo.com](http://pedrorijo.com/)
+Personal website and blog at [pedrorijo.com](http://pedrorijo.com/)
 
 Some useful links:
 * Current theme: http://jekyllthemes.org/themes/long-haul/
