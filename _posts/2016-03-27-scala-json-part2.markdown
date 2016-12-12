@@ -8,7 +8,7 @@ image:  json-logo.png
 
 tags: [tutorials]
 ---
-<span class="dropcap">F</span>ollowing up [my previous post on mapping json objects to Scala models](http://pedrorijo.com/blog/scala-json/), it is time to present some more advanced use cases.
+<span class="dropcap">F</span>ollowing up [my previous post on mapping json objects to Scala models]({{ site.url }}/blog/scala-json/), it is time to present some more advanced use cases.
 
 In the past weeks I have found myself in cases where a little more 'magic' was needed:
 

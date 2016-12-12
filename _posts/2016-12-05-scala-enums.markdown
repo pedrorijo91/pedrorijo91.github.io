@@ -3,9 +3,9 @@ layout: post
 
 title:  'Scala Enumerations'
 date:   2016-12-05 21:00:00
+description: 'How to use enumerations in Scala? Is the native approach the best one? Which problems does it brings? Are there any interesting alternatives?'
 
-
-tags: [tutorials, scala, enums]
+tags: [tutorials, scala, java, enumeration]
 ---
 <span class="dropcap">E</span>numerations are a language feature specially useful for modeling a finite set of entities. A classical example is modeling the weekdays as an enumeration: one value for each of the seven days. Scala, as many other languages, provides a native way to represent enumerations:
 
@@ -372,3 +372,7 @@ If you are just starting into Scala I would recommend to use the native approach
 * List all possible values
 * Add extra fields on enumeration values
 * Ordering
+
+## Follow up
+
+If you want to see more alternatives, check out the follow up on [Scala Enumerations - Return of the (Java) Jedi]({{ site.url }}/blog/scala-enums-part2)
