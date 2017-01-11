@@ -17,8 +17,8 @@ navigation:
    url: /about
  - title: Books
    url: /books
- - title: Projects
-   url: /projects
+# - title: Projects
+#   url: /projects
 
 author: pedrorijo91
 email: pedrorijo91@gmail.com
