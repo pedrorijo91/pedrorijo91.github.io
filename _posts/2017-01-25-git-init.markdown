@@ -1,0 +1,122 @@
+---
+layout: post
+
+title:  'Git Init'
+date:   2017-01-25 21:00:00
+description: 'Introduction to Git. What is Git? First part of a series of tutorials'
+image:  git-logo.png
+
+tags: [tutorials, git]
+---
+<span class="dropcap">T</span>his is the very first of a series of posts I'm planning to write about [Git](https://git-scm.com/).
+
+But why am I writing about Git when there are so many resources and tutorials available about it already?
+
+Well, because I've been seeing many [Stackoverflow questions](http://stackoverflow.com/questions/tagged/git) about Git, questions made by users who are still really confused about what is Git.
+
+This is just my attempt to help those developers to understand Git and all its power.
+
+## What is Git?
+
+From [its website](https://git-scm.com/), Git is defined as *a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency*.
+
+Git is optimized to deal with source code (text) files - you will understand why later. This means that **typically** you will want to keep executable files out of your Git project.
+
+#### Version Control System? What does that even mean?
+
+You can see Git like a [Dropbox](https://www.dropbox.com/) for your programming projects. You have an online backup, where other team members can change stuff. And every change is recorded, so you can go back on time very easily, accessing any previous version.
+
+#### What is not Git?
+
+A very common mistake I see from new users is the confusion between Git and [GitHub](http://github.com/). And what's the difference?
+
+Well, if you have a project under Git, you have access to all those functionalities like rollback to another version. But if you want to have an online backup, you need to keep your project on a accessible server (like Dropbox website). That way, you can send your work to the server, clean your computer, and still be able to download a copy of your work and continue from where you left.
+
+But setting up a (Git) server can be a lot of work. And some of us don't have the possibility of taking care of a personal server. Well, GitHub can be seen as a *Git server as a service*. You register, and you can configure your project to be hosted on GitHub (free and paid plans available of course).
+
+GitHub has becoming the most known and used Git Server, but there are also other alternatives:
+
+* [Bitbucket](https://bitbucket.org/) developed by Atlassian. Has some differences on the pricing, and good integrations with many other [Atlassian products](https://www.atlassian.com/software).
+* [Gitlab](https://about.gitlab.com/) is the open source solution for hosting your Git projects. This means you can see the code used to run the GitLab platform, as well as contributing to solve bugs or introduce new features.
+* Other newer/smaller solutions are always appearing, just google by yourself if you are interested.
+
+<p align='center'>
+<img src='/assets/img/github-logo.jpg' alt='GitHub' title='GitHub' width='300'/>
+<img src='/assets/img/bitbucket-logo.png' alt='Bitbucket' title='Bitbucket' width='300px'/>
+<img src='/assets/img/gitlab-logo.png' alt='GitLab' title='GitLab' width='200px'/>
+</p>
+
+## Where do I start?
+
+If you want to learn and use Git, you have to at least check [its website](https://git-scm.com/).
+
+The Git project has a very strong [community](https://git-scm.com/community), and they have built many resources:
+
+* The [Git book](https://git-scm.com/book/en/v2) will provide you a full overview of Git. From the most basic concepts, to its advanced internals
+* An [online introduction course](https://try.github.io/levels/1/challenges/1) for free. Built by Code School, they also offer some (paid) [advanced courses on Git](https://www.codeschool.com/learn/git). (Advice: sometimes they offer a free trial for a limited time which you can use to enroll in the paid courses)
+* Some online tutorials by [Atlassian](https://www.atlassian.com/git/), from basic stuff, to advanced usages.
+* Our blessed [Stackoverflow](http://stackoverflow.com/documentation/git/topics), that recently launched what it called [the biggest expansion to Stack Overflow since it first launched](https://stackoverflow.blog/2016/07/introducing-stack-overflow-documentation-beta/) - the documentation.
+* [Reddit](https://www.reddit.com/r/git/) is a community where you can also expose your questions/doubts.
+* A work in progress [series of tutorials](https://services.github.com/on-demand/) by GitHub
+
+<p align='center'><img src='/assets/img/git-pro-cover.jpg' alt='Git Pro book' title='Git Pro book' width='300px'/></p>
+
+## Basic concepts
+
+Let's start with the very basics of Git:
+
+#### Repository
+
+A Git repository contains a project. While you can keep several independent projects in a single repository, it makes your life way easier to keep each project in a single repository (even if [Google doesn't](https://news.ycombinator.com/item?id=11991479)).
+
+#### Commit
+
+Remember when I said that Git saves every version? Each version (or snapshot) is called a **commit**. Whenever you think you did a chunk of work that should be saved, you do a commit and you have another version of your work.
+
+#### Branch
+
+A repository is a collection of branches. Each branch is an (ordered) sequence of commits. Every repository has *at least one branch* (by default called **master**).
+
+Branches are one of the core features in Git, and it were one of the reasons that made Git so popular. Each branch (except the first one), starts from another one. Like a tree that at some point forks and gets ramifications. Each branch is an **independent** story of your project. Branches are essential when working with other developers, but they are also a powerful weapon when working alone, as they allow you to context-switch in a painless way.
+
+<p align='center'><img src='/assets/img/git-branches.png' alt='git branches example' title='git branches example' width='300px'/></p>
+
+#### Working areas
+
+This concept it's a little more tricky to understand, but it's very important to understand how to correctly go back in time with more advanced commands. I hope I can provide a fairly simple explanation:
+
+Git maintains 3 local states for each file: **working directory**, **staging area**, and **committed**
+
+* A modified file is in the **working directory**. It means some changes to the file have been made.
+* Finally, when you mark your modified file to be added to the next commit, the file is in the **staging area**, waiting for a commit to be included in.
+* A **committed** file is safely stored on Git and can be pushed to your server.
+
+Note that a file can be in multiple states at the same time since Git allows you select only a subset of file changes to each area:
+
+* You modified a file, but only added some lines to the **staging area**. The file is both on the **working directory** and **staging area**.
+* You added some file contents to the staging area. Since the file already existed on previous commits, the file is both on **staging area** and **committed**.
+
+<p align='center'><img src='/assets/img/git-areas.png' alt='git areas' title='git areas' width='650px'/></p>
+
+## Alternatives to command line
+
+While I do prefer using Git through the command line (CLI), as it offers me more control, there are some GUI alternatives that you may prefer, specially if you are just getting started. Just take in consideration that someday you may need to use Git without access to a GUI, or that almost every forum/resource you'll find when looking for help it's going to provide a command to run on the CLI.
+
+What I've seen as the better solutions available (because I never really used none of them) are:
+
+* [Atlassian SourceTree](https://www.sourcetreeapp.com/), from the company behind Bitbucket
+* [GitHub Desktop](https://desktop.github.com/) by the popular Git hosting service
+* [Git Kraken](https://www.gitkraken.com/)
+* [Tortoise](https://tortoisegit.org/), available just for Windows
+
+## Conclusion
+
+This post aims to provide a general overview about what is Git and tries to explain it's most important concepts and entities. It lists some nice *getting started* guides, and prepares you to **my next post**, which will take you through the basic usages of Git.
+
+Here are the previously mentioned tutorials on getting started:
+
+* The [Git book](https://git-scm.com/book/en/v2);
+* An [online introduction course](https://try.github.io/levels/1/challenges/1) for free. And some [paid advanced courses on Git](https://www.codeschool.com/learn/git);
+* Some online tutorials by [Atlassian](https://www.atlassian.com/git/), from basic stuff, to advanced usages.
+* [Stackoverflow documentation](http://stackoverflow.com/documentation/git/topics) with an always increase range of documentation and examples.
+* Reddit [r/git](https://www.reddit.com/r/git/).
