@@ -1,0 +1,228 @@
+---
+layout: post
+
+title:  'Git Clone'
+date:   2017-01-31 21:00:00
+description: 'Getting started with Git. Git basic commands. Everything you need to know to start using Git in your personal projects. Second part of a series of tutorials'
+image:  git-logo.png
+
+tags: [tutorials, git]
+---
+<span class="dropcap">T</span>his is the second of a series of [Git](https://git-scm.com/) related posts. After covering the basic Git concepts on [my previous post]({{ site.url }}/blog/git-init) I will try to explain the basic usages of Git. If you are new to Git, make sure you first understand those concepts.
+
+After this post, you should be able to use the very basic of Git on your personal projects. You will be able to see the current status of your repository, select the changes you want to commit, and to commit your work. You will also learn how save your work on a remove server hosted on GitHub (or any other alternative), and so on.
+
+The next posts will cover the common workflow with Git, and some topics that are more prone to happen in a collaborative environment.
+
+## Getting my repository
+
+Now that you [know the main entities on Git]({{ site.url }}/blog/git-init) (repository, commits, branches), it's time to really start using Git. The first thing you need is a Git repository. And you will probably want to host on some service like GitHub, Bitbucket, or GitLab.
+
+To get a repository, go to one of these services (for instance, GitHub), and [create a new  repository](https://help.github.com/articles/create-a-repo/). It will create an empty repository. If you selected to initialize your repository with a *README.md* file, a *.gitignore*, or a license, the repository will contain an initial commit, which adds those files.
+
+* The *README.md* file is just *'the cover'* of your project, where you can (and [should]({{ site.url }}/blog/open-source-guidelines/#if-you-are-an-open-source-project-owner)) include some description for other users, as well as some documentation and uses cases. Basically, anything you find essential for someone who wants to understand/use your project.
+
+* The *.gitignore* file allows you to specify some files that you don't want to be included in your Git repository (like System files, or editor backup files). GitHub provides a [collection of useful *.gitignore* templates available](https://github.com/github/gitignore), just make sure to have a look.
+
+* The license file tells others in which ways they can use your code. You should choose if you will allow others to copy and change your original code, or if they can't use it in paid applications for example. Check the [choose a license website](https://choosealicense.com/).
+
+At this point you have an online repository. But now you want to download it to your machine, so that you can start working on it. The action of downloading a Git repository to your machine is called to [clone a repository](https://git-scm.com/docs/git-clone#_description). There are many useful options (flags) when cloning (some allow you to specify if you want to fetch all history data for instance), but you can ignore them for now.
+
+One thing you should notice is that all the major Git hosting platforms provide you (at least) two ways (protocols) of cloning a repository:
+
+* HTTPS - requires authentication using username and password. If you have two-factor authentication enabled you may need another way of authenticating, like [using personal access tokens](https://help.github.com/articles/which-remote-url-should-i-use/#when-2fa-is-enabled).
+
+* SSH - a secure protocol based on a pair of private and public keys. If you already use ssh keys, you just need to add your public key to the server. If not, just check the documentation on how to [clone using SSH protocol](https://help.github.com/articles/which-remote-url-should-i-use/#cloning-with-ssh-urls).
+
+Read more about the differences here: [Which remote URL should I use?](https://help.github.com/articles/which-remote-url-should-i-use/).
+
+#### Setting up a local Git repository
+
+If you don't want to specify a hosting service for now, it's totally fine. Git works 'offline', meaning you can access all of its features without having a cloud server. Just create a directory for your new repository and type:
+
+~~~bash
+$ git init
+Initialized empty Git repository in <current_directory>/.git/
+~~~
+
+and a `.git` folder will be created. This folder is where all the Git information is stored, and you should **\*never\*** change anything inside it (unless you really know what you are doing).
+
+Note that you can later specify a cloud location for your repository using [git remote](https://git-scm.com/docs/git-remote#git-remote-emaddem):
+
+~~~bash
+$ git remote add origin https://github.com/<USERNAME>/<REPOSITORY>.git
+~~~
+
+At this point you have a copy of your repository on your local machine and you are ready to work.
+
+## Repository Status
+
+So you finally did some changes that you want to save. Now it's time to do your first commit.
+
+Before committing you probably want to see what's the current state of you repository, which files have been added, removed, or changed. To do that you should use the [status command](https://git-scm.com/docs/git-status):
+
+~~~bash
+$ git status
+On branch <current branch>
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	deleted:    <deleted_file>
+	modified:   <modified file>
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	<new file>
+
+no changes added to commit (use "git add" and/or "git commit -a")
+~~~
+
+As you can see, Git typically has a very comprehensible output:
+
+* It shows the current branch on the first output line (*\<current branch\>*)
+* It lists the files which have been changed, prefixing by the type of modification. In this case, we have a deleted and a modified file. Before the list it also says what command should we run to select or discard the changes we did.
+* It lists new files in another section
+
+You can also run a more succinct version using the `--short` flag: `git status --short` or `git status -s`
+
+~~~bash
+$ git status -s
+D <deleted file>
+M <modified file>
+?? <new file>
+~~~
+
+To understand what each prefix means check [the documentation](https://git-scm.com/docs/git-status#_short_format).
+
+## Committing
+
+Now that you are able to see the changes you've made, it's time to tell Git which ones should be committed.
+
+That's accomplished using the [git add](https://git-scm.com/docs/git-add) command:
+
+~~~bash
+$ git add <file>
+~~~
+
+An important detail is that this command can be performed multiple times before a commit. It only adds the content of the specified file(s) at the time the *add* command is run; if you want subsequent changes included in the next commit, then you must run `git add` again to also select the new content to be committed.
+
+This means that you can change a file, select those changes to be committed, change it a little more, forgetting to select those new changes, and then you notice that the committed version of the file is not how you would expect. This can be particularly confusing in the beginning, but keep in mind that when you run `git add` you are just selecting the current set of changes.
+
+As any other Git command, *add* allows you to specify several flags. The `--update` (or `-u`) and `--all` (or `-A`) are among my favorites
+
+~~~bash
+$ git add -u # will select all files already known to Git (modified/not new files)
+
+$ git add -A # will add all changes, including new files
+~~~
+
+If you run the command:
+
+~~~bash
+$ git add ADDED_FILE.txt
+~~~
+
+and if you now ask for the repository status you'll see some differences:
+
+~~~bash
+$ git status
+On branch <current branch>
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+	modified:   ADDED_FILE.txt
+
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	deleted:    <deleted file>
+	modified:   <other modified file>
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	<new file>
+~~~
+
+If you do some changes on the added file you will see that it appears twice, on different sections:
+
+~~~bash
+$ git status
+On branch <current branch>
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+	modified:   ADDED_FILE.txt
+
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	deleted:    <deleted file>
+	modified:   <other modified file>
+	modified:   ADDED_FILE.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	<new file>
+~~~
+
+#### git commit
+
+Finally! It's time to really create your first commit! It may seem too much work to reach here at first sight, but you'll see it's pretty straightforward and will take you just a few seconds to do all of this.
+
+Committing is also very easy and it's done with the [commit command](https://git-scm.com/docs/git-commit):
+
+~~~bash
+$ git commit
+~~~
+
+and a text editor will open so that you can type a commit message. A commit message is just some info you write to explain what have you done in those changes, for instance "Add tests for feature X".
+
+Git lets you choose the default text editor, let it be *Vi*, *Atom*, *Emacs*, etc. Just use the [git config](https://help.github.com/articles/associating-text-editors-with-git/) command.
+
+But probably you will end doing small changes ([why?](https://crealytics.com/blog/2010/07/09/5-reasons-keeping-git-commits-small/)), and you will want to be faster committing. Once again, flags come to the rescue :smile:.
+
+You can specify the commit message as you specify the commit command using the `--message` or `-m` flag:
+
+~~~bash
+$ git commit -m "My commit message"
+~~~
+
+Commit messages are a very discussed topic; just spend 5 minutes reading some [opinions and styles](https://github.com/erlang/otp/wiki/Writing-good-commit-messages) about commit messages, and I think you will understand that a commit message is important.
+
+While there are many different rules and guides, start by providing a useful commit message for your future self, that will be trying to backtrack when and why a change was introduced, while your production system is crashing :fire::fire::fire:
+
+
+## Push it (optional)
+
+You are almost there! If you want to have an online backup, there's just one thing missing: send your changes to the server (GitHub, Bitbucket, GitLab, etc). This is done through the [push](https://git-scm.com/docs/git-push) command:
+
+~~~bash
+$ git push origin <branch>
+~~~
+
+Where *origin* is the [remote](https://git-scm.com/book/en/v2/Git-Basics-Working-with-Remotes) name. I will cover this concept in a future post, and you shouldn't need to worry about it for now, typically it will always be called *origin*. This command can be simplified [depending on your configurations](https://git-scm.com/docs/git-push#_description), but you can also skip it for now.
+
+## Pull
+
+If you are on the other side, i.e, you just want to get the latest updates to the branch you are working on, [git pull](https://git-scm.com/docs/git-pull) will do the work:
+
+~~~bash
+$ git pull origin <branch>
+~~~
+
+Make sure you pull before you start to work on that branch, or else the *pull* command will fail because you already have some changes locally. If that's the case you can throw away those changes, or [stash](https://git-scm.com/book/en/v1/Git-Tools-Stashing) them. I will not go into details for this one for now, but I will cover it in a future post, since this one is already getting a little bigger than I was expecting.
+
+## Conclusion
+
+I hope that I could gave an comprehensible guidance on your first steps into Git. I will keep posting more stuff, and in the next part I'm planning to approach the workflow when using Git, which includes usage of branches, merges and so on.
+
+Here are the already available parts of this Git series:
+
+* [Part 0 - Basic Git concepts]({{ site.url }}/blog/git-init)
+* [Part 1 - Starting with simple Git usage]({{ site.url }}/blog/git-clone) (this post)

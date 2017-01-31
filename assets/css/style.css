@@ -155,6 +155,9 @@ img
 	border: 0;
 	ms-interpolation-mode: bicubic;
 }
+.emoji {
+  vertical-align: text-top;
+}
 svg:not(:root)
 {
 	overflow: hidden;
