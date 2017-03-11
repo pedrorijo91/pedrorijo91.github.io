@@ -133,7 +133,7 @@ sub {
     bottom: -0.25em;
 }
 
-dl, menu, ol, ul {
+dl, menu, ol {
     margin: 1.5em 0;
 }
 
@@ -644,7 +644,7 @@ body {
     overflow-x: hidden;
 }
 
-body p, body ul {
+body p, body ul.noList {
     margin: 0 0 2rem;
 }
 
@@ -1189,7 +1189,7 @@ dd {
     .nav-toggle {
         display: none;
     }
-    .post h1, .post h2, .post h3, .post h4, .post h5, .post h6, .post p, .post ul, .post ol, .post dl, .post .pageTitle {
+    .post h1, .post h2, .post h3, .post h4, .post h5, .post h6, .post p, .post ol, .post dl, .post .pageTitle {
         float: left;
         float: none;
         margin: 0 auto 2rem;
