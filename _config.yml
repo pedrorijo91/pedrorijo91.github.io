@@ -38,5 +38,6 @@ gems:
   - jemoji
   - jekyll-feed
   - jekyll-paginate
-  - jekyll-github-metadata
+#  - jekyll-github-metadata
   - jekyll-seo-tag
+  - jekyll-redirect-from
