@@ -7,6 +7,7 @@ description: 'Some basic, or not so basic, questions about Scala. Interview leve
 image:  scala-logo.png
 redirect_from:
   - blog/scala-lang
+  - blog/scala-lang/
 
 tags: [scala, interview, questions, concepts]
 ---
