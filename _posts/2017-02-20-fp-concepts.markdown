@@ -46,7 +46,7 @@ Examples of expressions with referential transparency:
 }
 ~~~
 
-Referential transparency is one of the requirements to have a *pure function*. Besides referential transparency, a pure function must also be free of side effects. Side effects can include IO operations (stdout, files, database), modification of global variables, etc.
+Referential transparency is the requirement to have a *pure function*. And by the definition of referential transparency, a pure function will not have side effects.
 
 ~~~scala
 // this is a pure function
@@ -67,17 +67,19 @@ def impure(x: String): Boolean = {
 }
 ~~~
 
+But how can you use pure functions, which don't have side effects (like IO operations), to build useful programs? Well, it is possible because *pure functions* capture the side effects for later execution. Haskell IO monad is one of the most known example of this. Instead of doing the actual side effect, the function returns the side effect wrapped in some type (avoiding to say Monad...) for later execution. The computation of the execution plan is pure, but when it is run it is unsafe and impure because it contains IO (or other) effects.
+
+Finally, referential transparency must not be seen as a mere definition, but the source of many good things about functional programming. Referentially transparent expressions are context insensitive, which enables local reasoning on one hand, and high composability and compositionally on the other.
+
 ### Idempotence
 
-Idempotence is a property of certain operations/functions. An idempotent function can be called any number of times that will always return the same result.
-
-Suppose *f(x)* is a function that receives a numeric value, and it also returns a numeric value. If *f(x)* is idempotent we can say that:
+Idempotence is a property of certain operations/functions. A function is idempotent if and only if the result of applying it twice is the same as the result of applying it once, i.e., if you apply `f` again to the result of `f(x)` you will get the same result again. This can be translated into:
 
 ~~~
-f(x) + f(x) = 2 * f(x)
+∀x . f(f(x)) = f(x)
 ~~~
 
-In practice it means the function can be retried as often as necessary without changing the state. For instance, a read from a database is (usually) idempotent as each call will not change anything. Updates will typically be idempotent also: if you change a column to a value, the next time you do the same action, the final value will be the same, despite the initial value. Create operations on the other hand, can fail to be idempotent due to unique restrictions on the database for instance.
+For instance, sorting a list is idempotent, as sorting it a second time has no effect.
 
 ### Uniform Access Principle
 
@@ -112,9 +114,9 @@ obj.method // as long as the method is parameterless of course
 
 This allows to change simple class fields into methods without much effort during the code refactor.
 
-You can see this all over Scala. [Scala best practices](https://www.youtube.com/watch?v=ol2AB5UN1IA) say your code "shouldn't care" if it's dealing with an `Option` or a collection, because all of them can be treated equally in most situations just be using common methods like `.map`, `.foreach`, `.flatMap`, `.filter`, `.isEmpty`, etc.
+You can see this all over Scala. [Scala best practices](https://www.youtube.com/watch?v=ol2AB5UN1IA) say your code "shouldn't care" if it's dealing with an `Option` or a collection, because all of them can be treated equally in most situations just be using common higher order functions like `.map`, `.foreach`, `.flatMap`, `.filter`, `.isEmpty`, etc.
 
-This principle also brings some eventual problems: if you are accessing a value that required an expensive computation (an heavy database query for instance) and you are not aware of the cost, the system may become slow.
+This principle also brings some eventual problems: if you are accessing a value that requires an expensive computation (an heavy database query for instance) and you are not aware of the cost, the system may become slow.
 
 Sometimes you don't care about the implementation underneath, and sometimes you have to be aware of it.
 
@@ -123,3 +125,7 @@ Sometimes you don't care about the implementation underneath, and sometimes you 
 Take into account that many definitions for each of the previous concepts are available, and there's not a consensus in many occasions. Just use the definitions I presented as an entry point to the concepts, so that you can start understanding them. Much more detailed information is widely available if you are interested in deepening your knowledge on functional programming concepts.
 
 Also, if you found some incoherence just let me know!
+
+### Edit
+
+Thanks to precious feedback I received (on [reddit](https://www.reddit.com/r/scala/comments/5zqk2l/functional_programmings_concepts/) and on the comments) about some misdefinitions. On one hand, it made me learn a little more, and on the other hand, you guys helped to transmit the correct knowledge to anyone who reads this.
