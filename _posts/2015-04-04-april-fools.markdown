@@ -11,7 +11,7 @@ tags: [april1st, fun]
 
 This year was no different. Despite the usual list of *fake* products, some companies as Google and Microsoft provided us the funniest surprises:
 
-* Microsoft launched [MS-DOS mobile version](http://lumiaconversations.microsoft.com/2015/04/01/microsoft-launches-ms-dos-mobile/) enabling you to travel back in time.
+* Microsoft launched MS-DOS mobile version enabling you to travel back in time.
 * [Google Maps](https://www.google.pt/maps) enabled the Pacman mode where you can play the classic game Pacman in everyday streets. Awesome!
 
 <p align='center'><img src='/assets/img/maps_pacman.jpg' alt='com.google' title='Mirrored Google' width='400px'/></p>
@@ -67,8 +67,8 @@ Have you ever though on going to the Facebook when preparing the salad? With [Sa
 <p align='center'><img src='/assets/img/samsung_blade.jpg' alt='gentoo' title='Retro Gentoo' width='400px'/></p>
 
 #### And many others
-Many other jokes gave me a good laugh. For instance, a [new compressing algorithm](http://zeroturnaround.com/blog/download-the-internet-in-milliseconds/) that could compress any file to a single bit, enabling to download and store the full internet, in a single bit!
-And have you ever thought the simple action of [going to the bathroom could be the next social network](https://signup.wework.com/wewee)? Well, someone did...
+Many other jokes gave me a good laugh. For instance, a [new compressing algorithm](https://zeroturnaround.com/rebellabs/ziprebel-download-the-internet-in-milliseconds/) that could compress any file to a single bit, enabling to download and store the full internet, in a single bit!
+And have you ever thought the simple action of going to the bathroom could be the next social network? Well, someone did...
 Or what about improving wireless reception [through the smell](http://www.wiffi.co.uk/)?
 
 You can check these and many other funny releases on [Hacker News](https://news.ycombinator.com/item?id=9302010) and [Tech Crunch](http://techcrunch.com/gallery/april-fools-2015-the-mega-round-up-of-the-best-gags/?ncid=tcdaily#Fi1KKn:xago)
