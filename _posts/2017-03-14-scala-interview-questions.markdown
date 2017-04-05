@@ -18,28 +18,28 @@ And while one can argue about the effectiveness of those questions to filter job
 
 Here's the list of questions I decided to answer to exercise myself, mostly from that repository:
 
-1. [What is the difference between a `var`, a `val` and `def`?](#what-is-the-difference-between-a-var-a-val-and-def)
-2. [What is the difference between a `trait` and an `abstract class`?](#what-is-the-difference-between-a-trait-and-an-abstract-class)
-3. [What is the difference between an `object` and a `class`?](#what-is-the-difference-between-an-object-and-a-class)
-4. [What is a `case class`?](#what-is-a-case-class)
-5. [What is the difference between a Java future and a Scala future?](#what-is-the-difference-between-a-java-future-and-a-scala-future)
-6. [What is the difference between `unapply` and `apply`, when would you use them?](#what-is-the-difference-between-unapply-and-apply-when-would-you-use-them)
-7. [What is a companion object?](#what-is-a-companion-object)
-8. [What is the difference between the following terms and types in Scala: `Nil`, `Null`, `None`, `Nothing`?](#what-is-the-difference-between-the-following-terms-and-types-in-scala-nil-null-none-nothing)
-9. [What is `Unit`?](#what-is-unit)
-10. [What is the difference between a `call-by-value` and `call-by-name` parameter?](#what-is-the-difference-between-a-call-by-value-and-call-by-name-parameter)
-11. [Define uses for the `Option` monad and good practices it provides.](#define-uses-for-the-option-monad-and-good-practices-it-provides)
-12. [How does `yield` work?](#how-does-yield-work)
-13. [Explain the implicit parameter precedence.](#explain-the-implicit-parameter-precedence)
-14. [What operations is a `for comprehension` syntactic sugar for?](#what-operations-is-a-for-comprehension-syntactic-sugar-for)
-15. [Streams:](#streams-what-consideration-you-need-to-have-when-you-use-scalas-streams-what-technique-does-the-scalas-streams-use-internally)
+1. [What is the difference between a `var`, a `val` and `def`?](#1-what-is-the-difference-between-a-var-a-val-and-def)
+2. [What is the difference between a `trait` and an `abstract class`?](#2-what-is-the-difference-between-a-trait-and-an-abstract-class)
+3. [What is the difference between an `object` and a `class`?](#3-what-is-the-difference-between-an-object-and-a-class)
+4. [What is a `case class`?](#4-what-is-a-case-class)
+5. [What is the difference between a Java future and a Scala future?](#5-what-is-the-difference-between-a-java-future-and-a-scala-future)
+6. [What is the difference between `unapply` and `apply`, when would you use them?](#6-what-is-the-difference-between-unapply-and-apply-when-would-you-use-them)
+7. [What is a companion object?](#7-what-is-a-companion-object)
+8. [What is the difference between the following terms and types in Scala: `Nil`, `Null`, `None`, `Nothing`?](#8-what-is-the-difference-between-the-following-terms-and-types-in-scala-nil-null-none-nothing)
+9. [What is `Unit`?](#9-what-is-unit)
+10. [What is the difference between a `call-by-value` and `call-by-name` parameter?](#10-what-is-the-difference-between-a-call-by-value-and-call-by-name-parameter)
+11. [Define uses for the `Option` monad and good practices it provides.](#11-define-uses-for-the-option-monad-and-good-practices-it-provides)
+12. [How does `yield` work?](#12-how-does-yield-work)
+13. [Explain the implicit parameter precedence.](#13-explain-the-implicit-parameter-precedence)
+14. [What operations is a `for comprehension` syntactic sugar for?](#14-what-operations-is-a-for-comprehension-syntactic-sugar-for)
+15. [Streams:](#15-streams-what-consideration-you-need-to-have-when-you-use-scalas-streams-what-technique-does-the-scalas-streams-use-internally)
 	* What consideration you need to have when you use Scala's `Streams`?
 	* What technique does the Scala's `Streams` use internally?
-16. [What is a `value class`?](#what-is-a-value-class)
-17. [Option vs Try vs Either](#option-vs-try-vs-either)
-18. [What is function currying?](#what-is-function-currying)
-19. [What is Tail recursion?](#what-is-tail-recursion)
-20. [What are High Order Functions?](#what-are-high-order-functions)
+16. [What is a `value class`?](#16-what-is-a-value-class)
+17. [Option vs Try vs Either](#17-option-vs-try-vs-either)
+18. [What is function currying?](#18-what-is-function-currying)
+19. [What is Tail recursion?](#19-what-is-tail-recursion)
+20. [What are High Order Functions?](#20-what-are-high-order-functions)
 
 ### Answers
 
