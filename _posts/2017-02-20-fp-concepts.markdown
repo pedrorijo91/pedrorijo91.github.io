@@ -5,6 +5,7 @@ title:  'Functional Programmings concepts'
 date:   2017-02-20 21:00:00
 description: 'Functional Programming concepts. What is referential transparency? That are pure functions? What is idempotence? What is the Uniform Access Principle?'
 image:  lambda.png
+image_alt: 'Lambda symbol - often related with functional programming'
 
 tags: [functional programming, referential transparency, pure functions, idempotence, uniform access principle]
 ---

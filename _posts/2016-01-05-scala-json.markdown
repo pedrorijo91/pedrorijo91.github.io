@@ -4,7 +4,7 @@ layout: post
 title:  'Saving JSON responses to your model in Scala'
 date:   2016-01-05 20:00:00
 image:  json-logo.png
-
+image_alt: 'JSON logo'
 
 tags: [tutorials]
 ---

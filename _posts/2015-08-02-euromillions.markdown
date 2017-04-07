@@ -4,6 +4,7 @@ layout: post
 title:  'EuroMillions -  European lottery'
 date:   2015-08-02 22:00:00
 image: euromillions-logo.jpg
+image_alt: 'Euromillions game logo'
 
 tags: [projects]
 ---

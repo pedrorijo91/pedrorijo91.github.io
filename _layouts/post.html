@@ -4,7 +4,8 @@ layout: default
 <div class="post">
 	{% if page.image %}
 		<div class="featuredImage" align='center'>
-	  		<img src="{{ site.url }}/assets/img/{{ page.image }}" height="250px"/>
+	  		<img src="{{ site.url }}/assets/img/{{ page.image }}" height="250px"
+				alt="{% if page.image_alt %}{{ page.image_alt }}{% else %}{{ page.title }}{% endif %}"/>
 	  	</div>
 	{% endif %}
 	<h1 class="postTitle">{{ page.title }}</h1>

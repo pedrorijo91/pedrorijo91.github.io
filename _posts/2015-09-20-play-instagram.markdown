@@ -4,7 +4,7 @@ layout: post
 title:  'Playing with Instagram API'
 date:   2015-09-20 16:00:00
 image: play-logo.png
-
+image_alt: 'Play Framework logo'
 
 tags: [projects]
 ---
