@@ -1,5 +1,5 @@
-name: Spaghetti and Hammers
-description: A nerds life story
+name: Spaghetti and Hammers - A nerds life story
+description: Personal site of Pedro Rijo (@pedrorijo91). Writing about Scala, Functional Programming, git, and all programming stuff I find time to learn about.
 
 url: http://pedrorijo.com
 #url: http://localhost:4000
@@ -8,7 +8,7 @@ permalink: blog/:title/
 
 markdown: kramdown
 highlighter: rouge
-paginate: 7
+paginate: 6
 
 navigation:
  - title: Home
@@ -38,6 +38,5 @@ gems:
   - jemoji
   - jekyll-feed
   - jekyll-paginate
-#  - jekyll-github-metadata
   - jekyll-seo-tag
   - jekyll-redirect-from
