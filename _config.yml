@@ -8,7 +8,7 @@ permalink: blog/:title/
 
 markdown: kramdown
 highlighter: rouge
-paginate: 7
+paginate: 6
 
 navigation:
  - title: Home
