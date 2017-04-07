@@ -4,6 +4,7 @@ layout: post
 title:  'Git Pro - Book review'
 date:   2016-02-13 14:30:00
 image:  git-pro-cover.jpg
+image_alt: 'Git Pro book cover'
 
 
 tags: [books]

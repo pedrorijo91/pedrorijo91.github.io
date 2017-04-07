@@ -4,7 +4,7 @@ layout: post
 title:  'Saving JSON to Scala model - Part 2'
 date:   2016-03-26 19:00:00
 image:  json-logo.png
-
+image_alt: 'JSON logo'
 
 tags: [tutorials]
 ---

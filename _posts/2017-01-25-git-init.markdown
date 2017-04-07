@@ -5,6 +5,7 @@ title:  'Git Init'
 date:   2017-01-25 21:00:00
 description: 'Introduction to Git. What is Git? First part of a series of tutorials'
 image:  git-logo.png
+image_alt: 'Git project logo'
 
 tags: [tutorials, git]
 ---

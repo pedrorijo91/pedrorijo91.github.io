@@ -5,6 +5,7 @@ title:  'Scala interview questions'
 date:   2017-03-14 21:00:00
 description: 'Some basic, or not so basic, questions about Scala. Interview level questions. Preparing your next Scala interview.'
 image:  scala-logo.png
+image_alt: 'Scala language logo'
 redirect_from:
   - blog/scala-lang
   - blog/scala-lang/

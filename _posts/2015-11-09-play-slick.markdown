@@ -4,7 +4,7 @@ layout: post
 title:  'Play framework, Slick and MySQL Tutorial'
 date:   2015-11-09 23:00:00
 image: play-slick-mysql.png
-
+image_alt: 'Play framework, Slick, and MySQL logos'
 
 tags: [tutorials]
 ---

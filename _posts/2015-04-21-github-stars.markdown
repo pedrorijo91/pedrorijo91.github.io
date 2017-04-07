@@ -4,6 +4,7 @@ layout: post
 title:  'Github Stars'
 date:   2015-04-21 01:00:00
 image: hollywod_walk_of_fame.jpg
+image_alt: 'Hollywood Walk of Fame star'
 
 tags: [github, stars]
 ---
@@ -31,7 +32,7 @@ Checkout some [examples](https://github.com/iamsteadman/telestrap/tree/master/ex
 <p align='center'><img src='/assets/img/telestrap_example_dashboard.png' alt='Telestrap Dashboard' title='Telestrap Dashboard' width='600px'/></p>
 
 ### Emoji
-Another funny project resulted in the [Emoji-Cheat-Sheet](https://github.com/arvida/emoji-cheat-sheet.com/), which lists the different emoji emoticons supported on several known services, such as [Github](https://github.com/) itself, [Trello](https://trello.com/), [Zendesk](https://www.zendesk.com/), and many others. It allows you to give some humor and express your emotions in commit messages for instance. 
+Another funny project resulted in the [Emoji-Cheat-Sheet](https://github.com/arvida/emoji-cheat-sheet.com/), which lists the different emoji emoticons supported on several known services, such as [Github](https://github.com/) itself, [Trello](https://trello.com/), [Zendesk](https://www.zendesk.com/), and many others. It allows you to give some humor and express your emotions in commit messages for instance.
 
 Not just for fun, Emoji found their place in some projects which decided to give useful meanings to emojis in commit messages. [Atom](https://github.com/atom/atom) defines a set of rules for contributions, where [commit messages should contain emojis](https://github.com/atom/atom/blob/97d697f1952eaa4bb0d5d71f4895877183ad53ba/CONTRIBUTING.md#git-commit-messages) which would work as visual tags for each commit.
 
@@ -42,13 +43,12 @@ Have you ever heard about [Julia](https://github.com/JuliaLang/julia), a new pro
 
 
 ### FizzBuzzEnterpriseEdition
-We all have worked before with one of those guys who simply loves to overkill in simple tasks. Why should someone use a dozen of frameworks for task that could be done with a small command line application? Even worst, many enterprise software solutions try to adopt high software quality standards and design principles, leading to non-sense implementations. 
+We all have worked before with one of those guys who simply loves to overkill in simple tasks. Why should someone use a dozen of frameworks for task that could be done with a small command line application? Even worst, many enterprise software solutions try to adopt high software quality standards and design principles, leading to non-sense implementations.
 
 [FizzBuzzEnterpriseEdition](https://github.com/EnterpriseQualityCoding/FizzBuzzEnterpriseEdition) is a open source project where everyone can implement more *'good software development practices'*.
 Why shouldn't someone replace all numbers in the code by constants? Why shouldn't someone use a factory to get the objects? Or why shouldn't someone use a the adapter pattern to get the behaviour from different classes?
 
-It seems to be no limit for good software development practices... 
+It seems to be no limit for good software development practices...
 
 ### illacceptanything
 Another open source comedy project, [illacceptanything](https://github.com/illacceptanything/illacceptanything) relies on other contributors to create the most random project ever. Commit anything you want to the repository and observe a mixing of webs most funny gif's, videos, and etc.
-

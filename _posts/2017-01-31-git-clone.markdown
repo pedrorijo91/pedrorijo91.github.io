@@ -5,6 +5,7 @@ title:  'Git Clone'
 date:   2017-01-31 21:00:00
 description: 'Getting started with Git. Git basic commands. Everything you need to know to start using Git in your personal projects. Second part of a series of tutorials'
 image:  git-logo.png
+image_alt: 'Git project logo'
 
 tags: [tutorials, git]
 ---
