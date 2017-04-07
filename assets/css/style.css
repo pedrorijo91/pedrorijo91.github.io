@@ -961,6 +961,15 @@ dd {
     right: 0;
 }
 
+.prev > img {
+  padding-right: 15px;
+}
+
+.next > img {
+  padding-left: 15px;
+}
+
+
 .footer {
     padding: 2rem 0;
     text-align: center;
