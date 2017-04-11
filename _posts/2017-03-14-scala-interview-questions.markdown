@@ -52,7 +52,7 @@ A `var` is a variable. It's a mutable reference to a value. Since it's mutable, 
 
 A `val` is a value. It's an immutable reference, meaning that its value never changes. Once assigned it will always keep the same value. It's similar to constants in another languages.
 
-A `def` is a function declaration. It is evaluated on call.
+A `def` creates a method (and [a method is different from a function](https://tpolecat.github.io/2014/06/09/methods-functions.html) - thanks to AP for his comment). It is evaluated on call.
 
 ~~~scala
 var x = 3 // x is of type Int. If you force it to be of type Any then this example would work
