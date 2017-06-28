@@ -121,3 +121,8 @@ Here are the previously mentioned tutorials on getting started:
 * Some online tutorials by [Atlassian](https://www.atlassian.com/git/), from basic stuff, to advanced usages.
 * [Stackoverflow documentation](http://stackoverflow.com/documentation/git/topics) with an always increase range of documentation and examples.
 * Reddit [r/git](https://www.reddit.com/r/git/).
+
+Here are the already available parts of this Git series:
+
+* [Part 0 - Basic Git concepts]({{ site.url }}/blog/git-init) (this post)
+* [Part 1 - Starting with simple Git usage]({{ site.url }}/blog/git-clone)
