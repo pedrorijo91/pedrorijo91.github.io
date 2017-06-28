@@ -126,3 +126,4 @@ Here are the already available parts of this Git series:
 
 * [Part 0 - Basic Git concepts]({{ site.url }}/blog/git-init) (this post)
 * [Part 1 - Starting with simple Git usage]({{ site.url }}/blog/git-clone)
+* [Part 2 - Using Git all by myself]({{ site.url }}/blog/git-workflow)
