@@ -8,7 +8,7 @@ layout: default
 				alt="{% if page.image_alt %}{{ page.image_alt }}{% else %}{{ page.title }}{% endif %}"/>
 	  	</div>
 	{% endif %}
-	<h1 class="postTitle">{{ page.title }}</h1>
+	<h2 class="postTitle">{{ page.title }}</h2>
 	<p class="meta">{{ page.date | date: '%B %d, %Y' }} | <span class="time">{{ page.content | number_of_words | divided_by:180 }}</span> Minute Read | <a href="{{ page.url }}index.html#disqus_thread" data-disqus-identifier="{{page.url}}"></a></p>
 
 	<div class="post-body">
