@@ -1,9 +1,9 @@
 ---
 layout: post
 
-title:  'Dealing with exceptions in Scala'
+title:  'Handling exceptions in Scala'
 date:   2017-08-29 21:00:00
-description: 'How to deal with exceptions in Scala. try/catch vs Try vs Catch'
+description: 'How to handle exceptions in Scala. try/catch vs Try vs Catch[T]'
 image:  scala-logo.png
 image_alt: 'Scala language logo'
 
