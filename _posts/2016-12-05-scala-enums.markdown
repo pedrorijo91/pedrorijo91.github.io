@@ -257,7 +257,7 @@ Although it makes easier to create type safe enumerations by using small annotat
 
 ## enumeratum
 
-Enumeratum is a type-safe and powerful enumeration implementation for Scala that offers exhaustive pattern match warnings.
+[Enumeratum](https://github.com/lloydmeta/enumeratum) is a type-safe and powerful enumeration implementation for Scala that offers exhaustive pattern match warnings.
 
 ~~~scala
 import enumeratum._
