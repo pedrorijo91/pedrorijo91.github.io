@@ -1,8 +1,7 @@
 source 'https://rubygems.org'
-gem 'github-pages', group: :jekyll_plugins
+gem 'github-pages', '163' 
 gem 'nokogiri', '1.6.7.2'
-#gem 'github-pages', '~> 93'
 gem 'jekyll-feed'
 gem 'jekyll-paginate'
-gem 'jekyll', '3.4.3'
+gem 'jekyll', '3.5.2'
 gem 'jekyll-redirect-from'
