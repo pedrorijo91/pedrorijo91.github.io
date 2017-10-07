@@ -33,10 +33,11 @@ hackernews_username: pedrorijo91
 stackoverflow_username: 4398050/pedrorijo91
 devport_username: pedrorijo91
 
-gems:
+plugins:
   - jekyll-mentions
   - jemoji
   - jekyll-feed
   - jekyll-paginate
   - jekyll-seo-tag
   - jekyll-redirect-from
+  - jekyll-sitemap
