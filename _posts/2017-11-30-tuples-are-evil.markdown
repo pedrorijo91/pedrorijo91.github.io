@@ -1,9 +1,9 @@
 ---
 layout: post
 
-title:  'Why Tuples are evil'
+title:  'Why you should think twice before using Tuples'
 date:   2017-11-30 21:00:00
-description: 'Why Scala Tuples are evil and should be avoided'
+description: 'Why you should think twice before using Scala Tuples. The problems of using tuples in Scala.'
 image:  scala-logo.png
 image_alt: 'Scala language logo'
 
