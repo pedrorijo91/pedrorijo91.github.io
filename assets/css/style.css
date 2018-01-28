@@ -662,6 +662,10 @@ img, video, audio, iframe, object {
     max-width: 100%;
 }
 
+img.border {
+  border: 1px solid black;
+}
+
 .container {
     margin-left: auto;
     margin-right: auto;
