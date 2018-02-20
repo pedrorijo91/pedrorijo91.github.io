@@ -1,7 +1,7 @@
 ---
 layout: post
 
-title:  'Creating forms on your Play application - part 1'
+title:  'Creating forms on your Play application - Part 1'
 date:   2018-02-01 22:00:00
 description: 'How to create simple HTML forms in Play framework.'
 image:  play-logo.png
@@ -426,6 +426,10 @@ For most of the things, the Play documentation website has a pretty nice cover o
 
 ### Conclusion
 
-This was the very basics of using HTML forms on Play framework. On the next part we will have a look on how to add a class  other than primitive types to your form, how to do nested forms, how to protect your forms from some kind of attacks, and the most important: styling your forms!
+This was the very basics of using HTML forms on Play framework. On the next part we will have a look on how to add a class  other than primitive types to your form, how to do nested forms, how to protect your forms from some kind of attacks, and the **most important**: styling your forms!
 
 If you found any problem following this tutorial, check the code at [GitHub](https://github.com/pedrorijo91/scala-play-forms).
+
+Now, have a look at the second part of this blog post:
+
+* [Advanced HTML forms in Play Framework]({{ site.url }}/blog/advanced-play-forms/)
