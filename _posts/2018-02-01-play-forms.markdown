@@ -399,7 +399,7 @@ How can we make it work then? Let's start by the form rendering this time:
 }
 ~~~
 
-As you can see, this time we did not use the Play helpers (*@inputFile*) to render the input. I can't really find any usage for that helper (if you do, please let me know).
+As you can see, this time we did not use the Play helpers (*@&#8203;inputFile*) to render the input. I can't really find any usage for that helper (if you do, please let me know).
 
 Also, as we will see, it is not possible to use the same mappings we used for the other input types, so the server logic is a bit different. Furthermore, note that we added an extra argument to define how should the form data be encoded: in order to send a file content through the form you must specify as *multipart/form-data*.
 

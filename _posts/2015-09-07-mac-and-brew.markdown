@@ -19,16 +19,12 @@ Of course, if you are a mac user, you are probably aware of [Homebrew](http://br
 
 <p align='center'><img src='/assets/img/brew-install-git.jpg' alt='brew install git' title='brew install git' width='600px'/></p>
 
-Fortunately, I got to meet [Homebrew Cask](http://caskroom.io/), an extension to Homebrew that promises to end with the drag to install action. To install it, just type in your terminal:
+Fortunately, I got to meet [Homebrew Cask](https://caskroom.github.io/), an extension to Homebrew that promises to end with the drag to install action. To install it, just type in your terminal:
 
 <code>brew install caskroom/cask/brew-cask</code>
 
 And <i>voilà</i>, you are ready to install all the software you need !
 </br>
-For instance, you can install [Skype](http://www.skype.com), [Slack](https://slack.com/), [Hipchat](https://www.hipchat.com/), [Dropbox](https://www.dropbox.com/), [Intellij](https://www.jetbrains.com/idea/), [Vlc](http://www.videolan.org/vlc/), even [Popcorn-time](https://popcorntime.io/) ! Just find out what's available at [Cask Search](https://caskroom.github.io/search) !
-
-After found out about `Cask` I searched for some important software I usually install every time I clean install my mac (and I bet it will be handy when Apple releases [El Capitan](http://www.apple.com/osx/elcapitan-preview/)). My search is collected in the below [gist](https://gist.github.com/pedrorijo91/38c9b6738f0154d85cd0).
-
-<script src="https://gist.github.com/pedrorijo91/38c9b6738f0154d85cd0.js"></script>
+For instance, you can install [Skype](http://www.skype.com), [Slack](https://slack.com/), [Hipchat](https://www.hipchat.com/), [Dropbox](https://www.dropbox.com/), [Intellij](https://www.jetbrains.com/idea/), [Vlc](http://www.videolan.org/vlc/), even [Popcorn-time](https://popcorntime.sh/) ! Just find out what's available at [Cask Search](https://caskroom.github.io/search) !
 
 Just select those you need and recommend those you think it could be handy.
