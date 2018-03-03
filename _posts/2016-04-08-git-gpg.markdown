@@ -6,8 +6,7 @@ date:   2016-04-08 21:00:00
 image:  gnupg-logo.png
 image_alt: 'GnuPG logo'
 
-
-tags: [tutorials]
+tags: [tutorials, git, gpg]
 ---
 <span class="dropcap">L</span>ast week GitHub released another new feature: [GPG signature verification](https://github.com/blog/2144-gpg-signature-verification).
 

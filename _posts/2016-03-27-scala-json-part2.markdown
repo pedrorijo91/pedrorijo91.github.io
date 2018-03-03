@@ -6,7 +6,7 @@ date:   2016-03-26 19:00:00
 image:  json-logo.png
 image_alt: 'JSON logo'
 
-tags: [tutorials]
+tags: [tutorials, scala, play-framework, json]
 ---
 <span class="dropcap">F</span>ollowing up [my previous post on mapping json objects to Scala models]({{ site.url }}/blog/scala-json/), it is time to present some more advanced use cases.
 

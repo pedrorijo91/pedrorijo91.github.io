@@ -6,6 +6,7 @@ date:   2015-09-07 18:30:00
 image: home-brew.png
 image_alt: 'Homebrew package manager logo'
 
+tags: [tutorials]
 ---
 <span class="dropcap">L</span>ast week, on September 1<sup>st</sup>, I started a new adventure on [Codacy](https://www.codacy.com/).
 

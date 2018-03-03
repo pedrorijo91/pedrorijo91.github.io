@@ -5,7 +5,7 @@ title:  'April fools jokes'
 date:   2015-04-04 01:30:00
 image: april_fools.png
 
-tags: [april1st, fun]
+#tags: [april1st, fun]
 ---
 <span class="dropcap">A</span>pril 1<sup>st</sup> is like Xmas for media and tech companies. Every year, companies rush to exhibit theirs most awesome products. A quick Google search reveals hundreds of those tech revolutions launched in this time of the year.
 

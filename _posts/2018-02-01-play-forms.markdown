@@ -7,7 +7,7 @@ description: 'How to create simple HTML forms in Play framework.'
 image:  play-logo.png
 image_alt: 'Play framework logo'
 
-tags: [scala, play, forms]
+tags: [scala, play-framework, html forms, tutorials]
 ---
 
 <span class="dropcap">P</span>lay framework is probably the most used web framework for Scala. One can say it's the 'Ruby on Rails' of Scala. And if you are developing a web application, you will need to use HTML forms sooner or later. Thankfully, the Play framework provides a couple of tools to ease the creation of those HTML elements.

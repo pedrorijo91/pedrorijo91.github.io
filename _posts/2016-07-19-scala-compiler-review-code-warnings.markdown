@@ -4,7 +4,7 @@ layout: post
 title:  'How to make the Scala compiler to review your code'
 date:   2016-07-19 23:00:00
 
-tags: [tutorials]
+tags: [tutorials, scala, coding practices]
 ---
 <span class="dropcap">C</span>ode review has become [one of the most important (and used) techniques](https://blog.codinghorror.com/code-reviews-just-do-it/) when it comes to code quality. The code review process may have very different workflows and subtleties, but it is often driven around the following steps:
 

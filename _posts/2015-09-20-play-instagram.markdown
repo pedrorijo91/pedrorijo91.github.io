@@ -6,7 +6,7 @@ date:   2015-09-20 16:00:00
 image: play-logo.png
 image_alt: 'Play Framework logo'
 
-tags: [projects]
+#tags: [projects]
 ---
 <span class="dropcap">F</span>or those who don't know, the [Play Framework](https://www.playframework.com/) is the standard web framework for Scala (also available to Java), and it is similar to many other MVC frameworks, such as [Spring MVC](http://projects.spring.io/spring-framework/), [Ruby on Rails](http://rubyonrails.org/), [Django](https://www.djangoproject.com/), and so on.
 

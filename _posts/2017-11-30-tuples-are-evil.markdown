@@ -7,7 +7,7 @@ description: 'Why you should think twice before using Scala Tuples. The problems
 image:  scala-logo.png
 image_alt: 'Scala language logo'
 
-tags: [scala, tuples, coding practices]
+tags: [scala, coding practices, programming languages]
 ---
 
 <span class="dropcap">W</span>hen I first started experimenting with Scala I found out about [tuples](http://www.scala-lang.org/api/2.12.3/scala/Tuple2.html). "Tuples are awesome" I thought. But they are not. Tuples are a trap you should avoid at all cost. Tuples are [the Eve's apple](https://en.wikipedia.org/wiki/Adam_and_Eve).

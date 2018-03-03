@@ -5,7 +5,7 @@ title:  'Scala Enumerations'
 date:   2016-12-05 21:00:00
 description: 'How to use enumerations in Scala? Is the native approach the best one? Which problems does it brings? Are there any interesting alternatives?'
 
-tags: [tutorials, scala, java, enumeration]
+tags: [tutorials, scala, enumerations]
 ---
 <span class="dropcap">E</span>numerations are a language feature specially useful for modeling a finite set of entities. A classical example is modeling the weekdays as an enumeration: one value for each of the seven days. Scala, as many other languages, provides a native way to represent enumerations:
 

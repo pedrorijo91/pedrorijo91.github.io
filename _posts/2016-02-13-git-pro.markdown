@@ -6,8 +6,7 @@ date:   2016-02-13 14:30:00
 image:  git-pro-cover.jpg
 image_alt: 'Git Pro book cover'
 
-
-tags: [books]
+tags: [books, git]
 ---
 <span class="dropcap">G</span>it is a [VCS](https://en.wikipedia.org/wiki/Version_control) that has become widely used, both in open source and private projects.
 

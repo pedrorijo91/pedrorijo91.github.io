@@ -6,7 +6,7 @@ date:   2016-01-05 20:00:00
 image:  json-logo.png
 image_alt: 'JSON logo'
 
-tags: [tutorials]
+tags: [tutorials, scala, json, play-framework]
 ---
 <span class="dropcap">I</span>f you deal with external APIs (like Twitter, Facebook, Intercom, Github, and many others) on a regular basis there's a big chance that you have already dealt with [JSON](http://www.json.org/) answers before.
 
