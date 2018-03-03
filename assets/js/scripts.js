@@ -38,7 +38,7 @@ var linkifyAnchors = function(level, containingElement) {
 
 document.onreadystatechange = function() {
     if (this.readyState === "complete") {
-        var contentBlock = document.getElementsByClassName("post")[0];
+        var contentBlock = document.getElementsByClassName("js-anchors")[0];
         if (!contentBlock) {
             return;
         }

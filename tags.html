@@ -1,0 +1,30 @@
+---
+layout: default
+title: Tags
+---
+
+<div class="js-anchors">
+  <h2>Posts by tag</h2>
+
+  {% assign sorted_tags = site.tags | sort %}
+
+  {% for tag in sorted_tags %}
+    {% assign t = tag | first %}
+    {% assign posts = tag | last %}
+
+    <h4 id="{{ t | slugify }}"><i class="fa fa-chevron-right"></i> {{ t }}</h4>
+
+    <ul>
+      {% for post in posts reversed %}
+        {% if post.tags contains t %}
+          <li>
+            <a href="{{ post.url }}">{{ post.title }}</a>
+            <span class="date">{{ post.date | date: "%B %-d, %Y"  }}</span>
+          </li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+
+  {% endfor %}
+
+</div>
