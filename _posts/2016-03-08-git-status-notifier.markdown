@@ -4,7 +4,7 @@ layout: post
 title:  'Git Status Notifier'
 date:   2016-03-08 21:00:00
 
-tags: [projects]
+#tags: [git, projects]
 ---
 <span class="dropcap">G</span>it has become one of the most essential tools for every developer. While most developers trust in [GitHub](https://github.com) to host their git repositories, [Bitbucket](https://bitbucket.org/), and more recently [Gitlab](https://gitlab.com/), have become worthy alternatives.
 

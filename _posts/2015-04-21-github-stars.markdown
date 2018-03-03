@@ -6,7 +6,7 @@ date:   2015-04-21 01:00:00
 image: hollywod_walk_of_fame.jpg
 image_alt: 'Hollywood Walk of Fame star'
 
-tags: [github, stars]
+#tags: [github]
 ---
 <span class="dropcap">R</span>ecently [Google announced that it would shut down Google Code project](http://google-opensource.blogspot.pt/2015/03/farewell-to-google-code.html). The decision was somehow obvious if we look at the [current numbers for Github](https://github.com/about/press) or [the 2014 stats for Bitbucket](https://blog.bitbucket.org/2015/02/05/bitbucket-2014-in-review/).
 

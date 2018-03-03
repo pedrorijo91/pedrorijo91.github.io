@@ -6,7 +6,7 @@ date:   2016-04-13 21:00:00
 image:  slack-hipchat.png
 
 
-tags: [tutorials]
+tags: [slack]
 ---
 <span class="dropcap">T</span>his month [Slack](https://slack.com/) announced to [have raised $200M ](http://www.nytimes.com/2016/04/02/technology/slack-a-leading-unicorn-raises-200-million-in-new-financing.html?_r=0) on its most recent financing. At the same time I started to **turn off Slack during working hours**.
 

@@ -898,6 +898,21 @@ dd {
     margin-bottom: 0;
 }
 
+.post .post-tag {
+  background-color: #2e8b57;
+  color: #fff;
+  display: inline;
+  padding: .2em .6em .3em;
+  font-size: 75%;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: .25em;
+  margin-right: 5px;
+  text-decoration: none;
+}
+
 .postNav {
     border-bottom: 1px solid #e6e6e6;
     border-top: 1px solid #e6e6e6;

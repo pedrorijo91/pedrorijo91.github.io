@@ -4,7 +4,7 @@ layout: post
 title:  'And God said: “Let there be light”'
 date:   2015-04-01 01:00:00
 
-tags: [helloWorld]
+tags: [hello world]
 ---
 <span class="dropcap">H</span>ey there,  
  and welcome to my new blog!  

@@ -5,9 +5,9 @@ title:  'Seven Languages in Seven Weeks - Book review'
 date:   2015-05-21 15:15:00
 image: Nerd-reading.jpg
 
-tags: [books]
+tags: [books, programming languages]
 ---
-<span class="dropcap">R</span>ecently I've finished reading the book 'Languages in Seven Weeks'. It is part of [Seven in Seven series](https://pragprog.com/categories/7in7) and it approaches seven different programming languages: [Ruby](https://www.ruby-lang.org/en/), [IO](http://iolanguage.org/), [Prolog](http://www.swi-prolog.org/), [Scala](http://scala-lang.org/), [Erlang](http://www.erlang.org/), [Clojure](http://clojure.org/), and [Haskell](https://www.haskell.org/). 
+<span class="dropcap">R</span>ecently I've finished reading the book 'Languages in Seven Weeks'. It is part of [Seven in Seven series](https://pragprog.com/categories/7in7) and it approaches seven different programming languages: [Ruby](https://www.ruby-lang.org/en/), [IO](http://iolanguage.org/), [Prolog](http://www.swi-prolog.org/), [Scala](http://scala-lang.org/), [Erlang](http://www.erlang.org/), [Clojure](http://clojure.org/), and [Haskell](https://www.haskell.org/).
 
 The publisher, [The Pragmatic Bookshelf](https://pragprog.com/), introduces this book by making reference to a recommendation by [The Pragmatic Programmer](https://pragprog.com/the-pragmatic-programmer), which states "You should learn a programming language every year", and suggesting that this book will make you learn *seven* new languages in about two months.
 
@@ -20,8 +20,8 @@ This book will present you seven distinct languages, its features, as well as it
 Each chapter is dedicated to one language, and it's split into five sections:
 
 * A brief introduction to the language and a very interesting interview with the language creator.
-* 'Day 1' is all about syntax, REPL, and some very basic concepts. 
-* 'Day 2' usually starts introducing some more complex language features like data structures, modules, classes and so on. 
+* 'Day 1' is all about syntax, REPL, and some very basic concepts.
+* 'Day 2' usually starts introducing some more complex language features like data structures, modules, classes and so on.
 * 'Day 3' presents you language advanced features in order to solve a proposed problem. The problem is chosen to show in which kind of problems the language provides an adequate set of features. For instance, in the Prolog chapter the final problem is a Sudoku solver due to Prolog efficiency in solving [CSPs](http://en.wikipedia.org/wiki/Constraint_satisfaction_problem), the Ruby chapter provides a problem focused on meta programming and dynamic typing, while Haskell problem is all about monads.
 * A conclusion section, with a small resume of the language, its core strengths and weaknesses.
 

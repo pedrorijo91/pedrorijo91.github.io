@@ -4,13 +4,13 @@ layout: post
 title:  'Bulletproof Commits'
 date:   2015-04-28 12:00:00
 
-tags: [projects]
+#tags: [git, projects]
 ---
 <span class="dropcap">H</span>ave you ever committed code that made you feel ashamed? Maybe, for instance, a print statement you used for debugging just because you were too lazy to use the debugger? Maybe you even had that crazy idea of using a *not so pretty* print message? (Don't worry, we all felt desperate to that point.)
 
 If the project you are working on has strong code review practices then, those print statements should get caught before going to production. Nevertheless, the code review process may let pass those pieces of code undetected when the diff set gets too large and there may be some time constraints.
 
-One simple solution is to review your own code before committing. How? I've found out recently a very useful feature on git, the *'git add -p'* command (if you use some git client I don't know how to use this feature, but there's probably an equivalent functionality). 
+One simple solution is to review your own code before committing. How? I've found out recently a very useful feature on git, the *'git add -p'* command (if you use some git client I don't know how to use this feature, but there's probably an equivalent functionality).
 This command allows you to "interactively choose hunks of patch between the index and the work tree and add them to the index"<sup>[1](http://git-scm.com/docs/git-add)</sup>, giving you a chance to review the difference before adding modified contents to the index.
 
 But who has the patience to review every chunk of code carefully? Well, maybe no one?
@@ -37,5 +37,5 @@ Some worthy details:
 * For each match the user is prompted for continuation/abortion, because it may exist some false positives.
 * Some coloured feedback is printed to the console
 
-> Note: 
+> Note:
 > You can always skip you client-side hooks with *'git commit --no-verify'*

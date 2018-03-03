@@ -7,7 +7,7 @@ description: 'Advanced HTML forms in Play framework.'
 image:  scala-logo.png
 image_alt: 'Scala language logo'
 
-tags: [scala, play, forms]
+tags: [scala, play-framework, html forms, tutorials]
 ---
 
 <span class="dropcap">I</span>n the [last post]({{ site.url }}/blog/play-forms/) we saw how to get started using HTML forms in Play applications. We covered how to render forms using Play helpers, how to validate some inputs, and how does Play deals with those input errors.

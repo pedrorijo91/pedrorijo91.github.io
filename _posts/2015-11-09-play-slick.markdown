@@ -6,7 +6,7 @@ date:   2015-11-09 23:00:00
 image: play-slick-mysql.png
 image_alt: 'Play framework, Slick, and MySQL logos'
 
-tags: [tutorials]
+tags: [tutorials, play-framework, scala, slick, mysql]
 ---
 <span class="dropcap">T</span>ypical nowadays applications need to store some persistent data frequently. And when we talk about persistent storage we are talking about databases. Among the most common applications, we have web applications. And it is uncommon to have a web application that does not require persistent storage.
 

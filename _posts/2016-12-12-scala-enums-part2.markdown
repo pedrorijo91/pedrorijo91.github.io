@@ -5,7 +5,7 @@ title:  'Scala Enumerations - Return of the (Java) Jedi'
 date:   2016-12-12 23:00:00
 description: 'Second part of Scala enumerations, after some discussions. Looking at enumerations libs overheads, and Java enums as an alternative.'
 
-tags: [tutorials, scala, java, enumeration]
+tags: [tutorials, scala, java, enumerations]
 ---
 <span class="dropcap">O</span>n my [last blog post]({{ site.url }}/blog/scala-enums) I've explored some solutions to create enumerations in Scala while getting some important compiler safeties.
 

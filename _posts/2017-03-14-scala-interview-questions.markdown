@@ -10,7 +10,7 @@ redirect_from:
   - blog/scala-lang
   - blog/scala-lang/
 
-tags: [scala, interview, questions, concepts]
+tags: [scala, interview, programming languages]
 ---
 
 <span class="dropcap">O</span>n the other day I saw a post asking for usual questions on Scala related job interviews. Among some answers I saw a reference to a [GitHub repository](https://github.com/Jarlakxen/Scala-Interview-Questions#language-questions) with several questions, not only Scala specific, but also about functional programming, and even more generic questions.

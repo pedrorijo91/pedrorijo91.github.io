@@ -7,7 +7,7 @@ description: 'How to handle exceptions in Scala. try/catch vs Try vs Catch[T]'
 image:  scala-logo.png
 image_alt: 'Scala language logo'
 
-tags: [scala, exceptions, try catch, scala.util.Try]
+tags: [scala, exceptions]
 ---
 
 <span class="dropcap">J</span>ava exceptions are one of the [most controversial Java language features](https://stackoverflow.com/questions/613954/the-case-against-checked-exceptions). [Checked exceptions](http://www.javapractices.com/topic/TopicAction.do?Id=129) are one of the reasons why Java exceptions became so hated. Programmers just abuse them by always catching them and dismissing them which leads to problems being hidden and ignored that would otherwise be presented to the user <sup>[1](http://www.artima.com/intv/handcuffs.html)</sup>. In no time you will end up with code like this:

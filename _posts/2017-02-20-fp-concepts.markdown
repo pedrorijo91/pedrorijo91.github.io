@@ -7,7 +7,7 @@ description: 'Functional Programming concepts. What is referential transparency?
 image:  lambda.png
 image_alt: 'Lambda symbol - often related with functional programming'
 
-tags: [functional programming, referential transparency, pure functions, idempotence, uniform access principle]
+tags: [functional programming]
 ---
 
 <span class="dropcap">F</span>rom time to time I find myself reading an article that refers to some concepts that I've already read about but I keep forgetting about their definition.

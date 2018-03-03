@@ -6,7 +6,7 @@ date:   2015-08-02 22:00:00
 image: euromillions-logo.jpg
 image_alt: 'Euromillions game logo'
 
-tags: [projects]
+#tags: [projects]
 ---
 <span class="dropcap">D</span>o you play lucky games? Maybe sometimes you go the casino for some time in the blackjack? Or maybe you prefer the roulette? Or maybe you are a little bit more old school and you prefer the lottery?
 If that's the case, and if you live in Europe, then there's most likely that you know [EuroMillions](http://www.euro-millions.com/).

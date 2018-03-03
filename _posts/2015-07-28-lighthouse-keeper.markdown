@@ -5,7 +5,7 @@ title:  'Lighthouse keeper - yet another ping'
 date:   2015-07-26 20:00:00
 image: lighthouse-keeper.jpg
 
-tags: [projects]
+#tags: [projects]
 ---
 <span class="dropcap">I</span>t has been a while since my last post, but between some side projects, summer vacation, and personal hobbies, it hasn't been exactly easy to get time to write something.
 
@@ -27,7 +27,7 @@ This year edition presented us an excellent line-up, containing speakers such as
 <p align='center'><img src='/assets/img/yo-logo.png' alt='Yo' title='Yo' width='200px'/></p>
 
 And what really made this project happen was the talk by Or Arbel. In his talk he introduced Yo. Do you remember Yo?</br>
-Yo is a mobile app launched a little more than a year ago (early 2014). It made a huge impact: first it seemed the next big thing, the next social network. Then, it seemed the most pathetic mobile app someone ever did. It had a single functionality: send a 'yo' (a notification, a Snapchat without image, video, text, or any other thing) to someone else - currently it is possible to incorporate links, images, and GPS coordinates. 
+Yo is a mobile app launched a little more than a year ago (early 2014). It made a huge impact: first it seemed the next big thing, the next social network. Then, it seemed the most pathetic mobile app someone ever did. It had a single functionality: send a 'yo' (a notification, a Snapchat without image, video, text, or any other thing) to someone else - currently it is possible to incorporate links, images, and GPS coordinates.
 [Business Insider](http://www.businessinsider.com/whats-happened-to-7-million-app-yo-now-that-the-hype-has-died-2014-9) and [Entrepreneur](http://www.entrepreneur.com/article/243311) wrote some interesting articles about Yo, just check them !
 
 But Or Arbel made me (and probably everybody in the audience) see the true power of Yo: Yo could replace those 5 seconds calls just to say "Hey man, I'm already at your door to pick you up, just hurry up", or "Hey mom, I'm leaving school now. I'll arrive home in 10 minutes". Even better, it could work as a notification for some service, like a blog. The blog owner (or any automated mechanism) would send a Yo to all its subscribers and they would know a new post had just been released. Well, everything seems nice, but I could use my RSS reader for that, or making a simple (probably free) phone call to my friends and mom...

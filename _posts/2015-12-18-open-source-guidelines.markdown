@@ -5,8 +5,7 @@ title:  'Open Source Development: a few guidelines'
 date:   2015-12-18 00:10:00
 image: openSource.jpg
 
-
-tags: [tutorials, codacy]
+tags: [tutorials, open-source]
 ---
 
 This post was originally published on [Codacy blog by me](http://blog.codacy.com/2015/12/17/open-source-development-a-few-guidelines/):
