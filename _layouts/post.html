@@ -1,7 +1,7 @@
 ---
 layout: default
 ---
-<div class="post">
+<div class="post js-anchors">
 	{% if page.image %}
 		<div class="featuredImage" align='center'>
 	  		<img src="{{ site.url }}/assets/img/{{ page.image }}" height="250px"
@@ -14,6 +14,15 @@ layout: default
 	<div class="post-body">
 	{{ content }}
 	</div>
+
+	<div class="tags">
+		{% assign sorted_tags = page.tags | sort %}
+		{% for tag in sorted_tags %}
+		    <a href="/tags#{{ tag | slugify }}" class="post-tag">{{ tag }}</span>
+		{% endfor %}
+	</div>
+
+	<br>
 
 	<a href="https://twitter.com/share" class="twitter-share-button" data-via="pedrorijo91" data-size="large">Tweet</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
