@@ -12,7 +12,7 @@ title: Tags
     {% assign t = tag | first %}
     {% assign posts = tag | last %}
 
-    <h4 id="{{ t | slugify }}"><i class="fa fa-chevron-right"></i> {{ t }}</h4>
+    <h4 id="{{ t | slugify }}"><i class="fa fa-tag" aria-hidden="true"></i> {{ t }} </h4>
 
     <ul>
       {% for post in posts reversed %}

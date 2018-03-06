@@ -15,10 +15,8 @@ navigation:
    url: /index.html
  - title: About
    url: /about
- - title: Books
-   url: /books
-# - title: Projects
-#   url: /projects
+ - title: All posts
+   url: /tags
 
 author: pedrorijo91
 email: pedrorijo91@gmail.com
