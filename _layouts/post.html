@@ -18,7 +18,7 @@ layout: default
 	<div class="tags">
 		{% assign sorted_tags = page.tags | sort %}
 		{% for tag in sorted_tags %}
-		    <a href="/tags#{{ tag | slugify }}" class="post-tag">{{ tag }}</span>
+		    <a href="/tags#{{ tag | slugify }}" class="post-tag">{{ tag }}</a>
 		{% endfor %}
 	</div>
 
