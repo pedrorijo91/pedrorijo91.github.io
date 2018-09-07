@@ -3,7 +3,7 @@ layout: post
 
 title: 'Strings are not the type you are looking for'
 date: 2018-08-31 19:00:00
-description: 'Encoding your domain as Strings is error prone'
+description: 'Why use statically typed languages when all of your types are Strings? Forget about Primitive Obsession and leverage the type system for code correctness'
 
 tags: [coding practices, programming languages, types]
 ---
@@ -14,7 +14,7 @@ One of the arguments that statically typed programming language developers (like
 
 I don't want to [discuss if you should use statically or dynamically typed languages](http://lambda-the-ultimate.org/node/5286), but I would like to show that we don't always leverage the type system as much as we could on statically typed languages. The common pitfall happens by using the type [java.lang.String](https://docs.oracle.com/javase/8/docs/api/java/lang/String.html) to encode many different concepts, allowing some easy-to-prevent bugs.
 
-<p align='center'><img src='/assets/img/static-dynamic-languages.png' alt='Static and Dynamic languages' title='Static and Dynamic languages' width='400px'/></p>
+<p align='center'><img src='/assets/img/static-dynamic-languages.png' alt='Static and Dynamic languages' title='Static and Dynamic languages' width='600px'/></p>
 
 ### Statically typed languages overview
 
