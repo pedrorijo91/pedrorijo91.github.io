@@ -16,6 +16,8 @@ navigation:
    url: /about
  - title: All posts
    url: /tags
+ - title: External contributions
+   url: /external
 
 email: pedrorijo91@gmail.com
 twitter_username: pedrorijo91
