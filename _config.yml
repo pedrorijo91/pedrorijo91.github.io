@@ -34,3 +34,5 @@ plugins:
   - jekyll-seo-tag
   - jekyll-redirect-from
   - jekyll-sitemap
+
+include: [".well-known"]

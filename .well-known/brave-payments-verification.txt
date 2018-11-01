@@ -1,0 +1,4 @@
+This is a Brave Payments publisher verification file.
+
+Domain: pedrorijo.com
+Token: fd65791b050306ef4663029a2480d29fa5ca20d9ab20e52790fd15ce47522140
