@@ -12,7 +12,7 @@ before_script:
 script: 
   - bundle exec jekyll build
   - percy snapshot _site/ --enable_javascript
-  - ./script/cibuild
+#  - ./script/cibuild
 
 env:
   global:
