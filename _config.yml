@@ -36,3 +36,4 @@ plugins:
   - jekyll-sitemap
 
 include: [".well-known"]
+exclude: [vendor]
