@@ -3,26 +3,26 @@ layout: post
 
 title: 'Testing concurrent programs'
 date: 2019-01-17 19:00:00
-description: "Concurrent programs are hard to create correctly, and test them effectively it's not easy as well. Let's go through the existing mechanisms to help us on this mission."
+description: "Concurrent programs are hard to create correctly, and test them effectively it's even harder. Let's go through the existing mechanisms to help us on this goal."
 
 tags: [concurrency, multi-thread, testing]
 ---
 
-<span class="dropcap">N</span>ot a long time ago, I was interviewing a candidate for a senior developer position at [Feedzai](https://feedzai.com/), and one of the interviewing subjects I like to approach is concurrency and parallelism. This is usually a weak spot for many developers, but it's a critical piece at Feedzai due to the nature of the product.
+<span class="dropcap">N</span>ot a long time ago, I was interviewing a candidate for a senior developer position at [Feedzai](https://feedzai.com/), and one of the interviewing subjects I like to approach is concurrency and parallelism. This is usually a weak spot for many developers, and it's a critical subject at Feedzai due to the nature of the product.
 
-<p align='center'><img src='/assets/img/java-concurrency-in-practice.jpg' alt='Java Concurrency in Practice' title='Java Concurrency in Practice' width='200px'/></p>
+<p align='center'><img src='/assets/img/java-concurrency-in-practice.jpg' alt='Java Concurrency in Practice' title='Java Concurrency in Practice' width='300px'/></p>
 
-Let me start by saying that if you are not familiar with concurrency on the jvm, I totally recommend the bible: [Java Concurrency in Practice](http://jcip.net/), by Brian Goetz. It's a must read with all the essentials!
+Let me start by saying that if you are not familiar with concurrency on the JVM, I totally recommend the bible: [Java Concurrency in Practice](http://jcip.net/), by Brian Goetz. It's a must read with all the essentials!
 
-Most of the developers I've talked with, know the main concepts of multi-threading, thread pools, locks, race conditions, deadlocks, starvation, and so on, but there's one particular area in which the lack of knowledge is scaring: testing multi-threaded code!
+I feel like most experienced developers I have crossed with have a good idea about the main concepts of multi-threading: thread pools, locks, race conditions, deadlocks, starvation, and so on. Some with higher confidence, some with a few flaws, as expected. But what I found very curious is general lack of knowledge on the simple existance of thread synchronization mechanisms, which allow to control multiple threads to some extent, instead of relying in luck.
 
 <p align='center'><img src='/assets/img/confused.jpg' alt='Confused guy' title='Confused guy' width='400px'/></p>
 
-With this in mind, I thought about writing a few lines along testing multi-threaded code.
+With this in mind, I thought about writing a few lines along synchronizing threads, which may be particulary useful while testing multi-threaded code.
 
 ### The classic concurrent counter
 
-What's the classic example on the concurrency topic? Our old friend, the counter, of course. So let's start by creating a (buggy) counter:
+As any other blog post on multi-threaded code, let's start by the classic example: our old friend, the counter, of course. So let's start by creating a (buggy) counter:
 
 ~~~java
 public class Counter {
@@ -45,23 +45,17 @@ public class Counter {
 }
 ~~~
 
-As you can see, there's one method that changes the internal state, the method `inc()`, which doesn't have a syncronization strategy to deal with concurrent invocations.
+As you can see, there's one method that changes the internal state, the method `inc()`, which doesn't have a syncronization strategy to deal with concurrent invocations, which will lead to concurrency bugs.
 
 Let's naively assume that our code is correct, and test it.
 
-### Testing the manual way
-
-The most common answer regarding testing multi-threaded code is something along 'I open several tabs of my browser, and click on a lot of them at the same time'.
-
-This is not an automated solution, and I think that we all agree that automatization is essential to run the tests frequently and keep the number of bugs small. Let's move to automated tests then!
-
 ### Automated tests on multi-threaded code
 
-Forgeting the previous section on manual testing, we are soo proud of our counter implementation that we want to create a unit test (UT) to prove it can handle multi-threaded environments.
+Now we are soo proud of our counter implementation that we want to create a unit test to prove it can handle multi-threaded environments.
 
 One of the most important aspects of testing multi-threaded code, is to reduce the flakyness, because you never control how are instructions from different threads being interchanged. Something that may help, are thread syncronization mechanisms. The JDK comes with a few under the [java.util.concurrent package](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/package-summary.html), but we will look at them later. For now let's start with a more naive test and see the problems.
 
-How can we start testing our counter then? Well, we will need to have a counter instance (obviously), and multiple threads invoking the potentialy dangerous code (the `inc()` method since it's the only that changes the internal state), and checking everything is as supposed to at the end.
+How can we start testing our counter then? Well, we will need to have a counter instance (obviously) and multiple threads invoking the potentialy dangerous code - in this case, the `inc()` method, since it's the only that changes the internal state. Finally we should check everything is as supposed to at the end.
 
 Since multiple threads are changing the state concurrently, it would be hard to make sure that each operation goes as intended - if we wanted to check that for thread A, before calling the `inc()` method the current value was `X`, and immediatly afterwards it was `X + 1` we would need to remove the concurrency, or to create some way to make that operation atomic - as such, let's just look at the final state for the sake of simplicity.
 
@@ -96,7 +90,7 @@ public void testCounterLowConcurrency() throws InterruptedException {
 
 If we start by setting `nbrConcurrentThreads` to 1, which means only 1 thread will be using the counter, our test will pass - no big surprise here: the counter logic is pretty simple and is perfectly fine for a single threaded environment.
 
-Now, if we set `nbrConcurrentThreads` to 2, the test could still pass some/most of the times: it all depends on how unlucky you are (and that's one of the most complicated problems of testing multi-threaded code: it is very flaky and bugs are hard to reproduce). If you are lucky, your test should capture the problem and output something like this:
+Now, if we set `nbrConcurrentThreads` to 2, the test could still pass some (most?) of the times: it all depends on how unlucky you are (and that's one of the most complicated problems of testing multi-threaded code: it is very flaky and bugs are hard to reproduce). If you are lucky, your test should capture the problem and output something like this:
 
 ~~~
 java.lang.AssertionError:
@@ -106,9 +100,7 @@ Actual   :9
 
 And why will it still pass sometimes? Because we have such a small number of threads trying to modify the counter (remember we only have 2 concurrent threads), it may happen that they don't try to modify it at the same time.
 
-The probability of finding the problem during the testing phase decreases if your threads spends a bigger percentage of its lifetime doing other things - like accessing the database - other than modifying the counter state.
-
-You can easily simulate that by making the submited thread sleep for a random amount of time.
+The probability of finding the problem during the testing phase decreases if you add more randomness into your thread - like accessing the database - other than modifying the counter state.
 
 ### Releasing all the threads!
 
@@ -138,16 +130,21 @@ public void testCounterHighConcurrency() throws InterruptedException {
 
     Assert.assertEquals(nbrOfThreads, c.getCount());
 }
-}
 ~~~
 
-You will now hardly see the test passing. But the flakyness is still there, even if hidden or in a very small factor.
+You will now hardly see the test passing. But the flakyness will always be there, even if hidden or in a very small factor.
 
 ### Using the right tools for the job
 
+But there are more complicated multi-threaded environments. For instance, imagine that our counter now allows other threads to subscribe to changes, so that they are notified upon the counter increment. How do we make sure the subscriber was called?
+
+One possibility is having some global variable that the subscriber updates. But now, how long should we wait? Maybe we should wait 1 second? Maybe 30 seconds? Or 1 minute? Will we be waiting more time than needed most of the times? Surely. Then why not pooling the global variable value? It should work yes, but the code gets a bit more messy than it should.
+
+
+// TODO
 And what can we use to help us dealing with multi-threaded environments and to test our code under these conditions?
 
-It is usually very useful to know how to synchronize a bunch of threads. There are a few class on the [java.util.concurrent package](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/package-summary.html) that can help us a lot here:
+It is often very useful to know how to synchronize a bunch of threads. There are a few classes on the [java.util.concurrent package](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/package-summary.html) that can help us a lot here:
 
 - [Semaphore](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/Semaphore.html)
 - [CyclicBarrier](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CyclicBarrier.html)
@@ -156,9 +153,11 @@ It is usually very useful to know how to synchronize a bunch of threads. There a
 
 #### Semaphore
 
-This is probably the most known entity of the ones listed above. A semaphore is very similar to a lock, but it has a specified capacity, that can be bigger than the capcity if a lock, that is 1. A semaphore can be used to limit the access to some resource (as our `counter` intance being tested). This way we can ensure no more than X threads are acessing the resource.
+This is probably the most known entity of the ones listed above. A semaphore is very similar to a lock, but it has a specified capacity, that can be bigger than the capacity of a lock, which is 1. A semaphore can be used to limit the access to some resource (as our `counter` intance being tested). This way we can ensure no more than X threads are acessing the resource.
 
-The semaphore is not directly usable for our test case, but let's see how it can be used. The following snippet of code creates several threads to be executed concurrently. If we had no semaphore, we would have the number of concurrent threads working limited by the thread pool capacity of the ExecutorService:
+The semaphore is not directly usable for our test case, but let's see how it can be used on common situations.
+
+The following snippet of code creates several threads to be executed concurrently. If we had no semaphore, we would have the number of concurrent threads working limited by the thread pool capacity of the ExecutorService:
 
 ~~~java
 @Test
@@ -235,7 +234,7 @@ Running thread 7 on iteration 2
 Running thread 5 on iteration 2
 ~~~
 
-If no semaphore was being used, we would see 4 threads at each time, since it would be the ExecutorService limiting the concurrency.
+If no semaphore was being used, we would see 4 threads at each time, since it would be the ExecutorService limiting the concurrency. Just test it by yourself.
 
 #### CyclicBarrier
 
@@ -283,6 +282,8 @@ public void barrierExample() throws InterruptedException {
   es.awaitTermination(30, TimeUnit.SECONDS);
 }
 ~~~
+
+CyclicBarrier is specially usefull when you are running a pipeline in phases. You can't start phase 2 before finishing phase 1, and maybe you can run several parts of phase 1 in paralell. By using the CyclicBarrier you can synchronize the phase 1 threads with the starting of the phase 2, to make sure everything is perfectly aligned. Just remember to account for possible errors.
 
 #### CountDownLatch
 
