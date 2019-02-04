@@ -444,7 +444,7 @@ th:last-child {
     color: #C1C2C3;
     moz-border-radius: 3px;
     overflow: auto;
-    padding: 20px;
+    padding: 10px;
     webkit-border-radius: 3px;
     white-space: pre;
     word-wrap: normal;
@@ -951,7 +951,7 @@ dd {
     padding: .5rem;
     position: absolute;
     position: relative;
-    top: 50%;
+    top: 25%;
     transform: translateY(-50%);
     webkit-transform: translateY(-50%);
     width: 100%;
@@ -1133,7 +1133,7 @@ dd {
     .container {
         margin-left: auto;
         margin-right: auto;
-        max-width: 800px;
+        max-width: 900px;
         padding: 0;
     }
     .container:after {
@@ -1159,7 +1159,7 @@ dd {
     .header .container {
         margin-left: auto;
         margin-right: auto;
-        max-width: 800px;
+        max-width: 900px;
         ms-transform: translateY(-50%);
         position: relative;
         top: 50%;
@@ -1270,7 +1270,7 @@ dd {
     .footer .container {
         margin-left: auto;
         margin-right: auto;
-        max-width: 800px;
+        max-width: 900px;
         padding: 1rem 0;
     }
     .footer .container:after {
