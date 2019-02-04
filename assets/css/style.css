@@ -881,6 +881,11 @@ dd {
 
 .post .highlight {
     clear: both;
+    margin-bottom: 0rem;
+    margin-top: 0rem;
+}
+
+div .highlighter-rouge {
     margin-bottom: 2rem;
 }
 
