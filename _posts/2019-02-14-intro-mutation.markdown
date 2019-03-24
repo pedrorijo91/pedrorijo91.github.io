@@ -302,3 +302,7 @@ List of other useful resources:
 * [Maven plugin to support PIT on multi module projects](https://github.com/STAMP-project/pitmp-maven-plugin)
 * [PIT descartes engine](http://github.com/STAMP-project/pitest-descartes)
 * [A blog post on MT and PIT by Anthony Troy](http://www.notearsonlydreams.io/blog/2017/03/12/mutation-testing-is-awesome-pit-for-the-jvm/)
+
+And a presentation I gave at Pixels Camp 2019:
+
+<iframe id="talk_frame_505493" src="//speakerdeck.com/player/f1dcadf849f943ff91c68160ea87b814" width="710" height="399" style="border:0; padding:0; margin:0; background:transparent;" frameborder="0" allowtransparency="true" allowfullscreen="allowfullscreen" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
