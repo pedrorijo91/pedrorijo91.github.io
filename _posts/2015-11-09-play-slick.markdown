@@ -8,6 +8,9 @@ image_alt: 'Play framework, Slick, and MySQL logos'
 
 tags: [tutorials, play-framework, scala, slick, mysql]
 ---
+
+> Edit: You may want to have a look at the updated example using Play 2.7 instead of Play 2.4 at [Play Framework and Slick example updated]({{ site.url }}/blog/play-slick-updated)
+
 <span class="dropcap">T</span>ypical nowadays applications need to store some persistent data frequently. And when we talk about persistent storage we are talking about databases. Among the most common applications, we have web applications. And it is uncommon to have a web application that does not require persistent storage.
 
 Building webapps in Scala is typically done using the [Play framework](https://www.playframework.com/). And for persistent storage, Scala developers typically appeal to [Slick](http://slick.typesafe.com/). Even though it is possible to use Java libraries and frameworks like the well-know [Hibernate](http://hibernate.org/) - described as an *high-performance Object/Relational persistence and query service* - Slick has a Scala-like API, where everything is pretty similar to Scala collections, making Slick way more attractive to Scala developers.
