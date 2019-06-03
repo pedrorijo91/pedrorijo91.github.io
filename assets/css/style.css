@@ -887,6 +887,8 @@ dd {
 
 div .highlighter-rouge {
     margin-bottom: 2rem;
+    color: #c7254e;
+    background-color: #f5f5f5;
 }
 
 .post .dropcap {
