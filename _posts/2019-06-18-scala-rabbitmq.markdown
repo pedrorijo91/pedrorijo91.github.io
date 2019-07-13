@@ -20,11 +20,11 @@ If you implemented a very smart solution for all of these problems, then you pro
 
 In this tutorial I want to go through the basics of RabbitMQ using some Scala snippets. While each message broker is somehow different, RabbitMQ is widely used, and most of them use the same base protocol: [AMQP](https://www.rabbitmq.com/tutorials/amqp-concepts.html).
 
-## RabbitMQ
+### RabbitMQ
 
 RabbitMQ implements the AMQP protocol, and it can be a good solution in several use cases. Besides the most basic use cases which we are going to have a look, there are also tons of plugins to extend its capabilities that may be useful: [https://www.rabbitmq.com/plugins.html](https://www.rabbitmq.com/plugins.html).
 
-### Starting a RabbitMQ instance
+#### Starting a RabbitMQ instance
 
 We will start by spinning up a RabbitMQ server instance. For that we are going to use [docker](https://www.docker.com/) because it makes everything easier. There are a few different [docker images available](https://hub.docker.com/_/rabbitmq/), but we are going to use one that offers the [management plugin](https://www.rabbitmq.com/management.html) already installed, which will help us understand what's happening through our examples:
 
@@ -37,7 +37,7 @@ rabbitmq:3-management
 
 Now that we have a running RabbitMQ instance, we can access it's manager UI through [http://localhost:15672/](http://localhost:15672/). There we can see the overall state and statistics of our RabbitMQ instance.
 
-### Basic concepts
+#### Basic concepts
 
 Before going into the examples, we need to go to the basics. When using RabbitMQ these are the main entities you should know about:
 
@@ -46,7 +46,7 @@ Before going into the examples, we need to go to the basics. When using RabbitMQ
 - **Queues**: where messages live. When you send a message, the message will be kept in some queue. Messages are stored in queues, where consumers can process them.
 - **Exchanges**: a indirection level between a producer and the queues. When you send messages, you send them to an `exchange`. The exchange is then responsible for forwarding the message to the correct queues (0 or more queues).
 
-### My first RabbitMQ Producer
+#### My first RabbitMQ Producer
 
 We are going to use the [Java official client](https://www.rabbitmq.com/java-client.html) through this article despite the examples being in Scala, just because there are no official Scala clients.
 
@@ -90,7 +90,7 @@ You can see it by yourself on the management UI, by going to [http://localhost:1
 
 And if you go down the page, you will see a 'Get Message(s)' button, which allow you to consume the messages manually.
 
-### My first RabbitMQ Consumer
+#### My first RabbitMQ Consumer
 
 Now that we have messages in the queue, we want to receive and do something with those messages right?
 
@@ -211,7 +211,7 @@ object RabbitMqConsumer extends App {
 
 At this moment you already have a decoupled pair of services that can exchange messages asynchronously. Give it a try and play at your own rhythm now!
 
-#### Manual Ack
+##### Manual Ack
 
 As we saw, we have set `autoAck` as true. This means that whenever a message is received (consumed), an automatic ack will be sent, and the message will be deleted from the queue. But often the receiver will do a complicated processing of the message, and can fail mid-through. In such cases, the message will be lost forever. Unless you disable `autoAck` and do it manually:
 
@@ -233,7 +233,7 @@ If you forget to do the manual ack, the message will stay in an 'Unacked' state 
 
 <p align='center'><img src='/assets/img/rabbitmq-queue-unacked.png' alt='RabbitMQ unacked message chart' title='RabbitMQ unacked message chart' width='800px'/></p>
 
-#### Fair dispatch
+##### Fair dispatch
 
 What we have seen so far allow us to use RabbitMQ to create a Work Queue system (producers submit tasks to be processed by many receivers/workers). If you use RabbitMQ as a Work Queue, you may find a problem on our simple setup until now.
 
@@ -249,7 +249,7 @@ channel.basicConsume(queueName, autoAck, callback, cancel)
 
 This setting imposes a limit on the amount of data the server will deliver to consumers before requiring acknowledgements. In the example above, the server will only deliver 1 message and wait for the ack before delivering the next one. Thus, the server will always prefer to send messages to free receivers, making the workload better distributed.
 
-### Publish-Subscribe
+#### Publish-Subscribe
 
 Until now we have been using RabbitMQ as a communication mechanism to deliver messages to a single consumer. Very often you want to deliver one message to multiple consumers. This is what we typically call a `Publish-Subscribe` architecture.
 
@@ -292,7 +292,7 @@ channel.queueBind(queueName, exchange, routingKey)
 Want to see it in action? Just spin up multiple consumers (two are enough) and one publisher using the snippets above.
 You will be able to see that a message is delivered to all the consumers.
 
-#### Fine-tuning messages
+##### Fine-tuning messages
 
 In the previous example we made every message sent to an exchange being received by all queues bound to the exchange. While you can filter using custom logic on the service code, RabbitMQ offers a way to filter them in a easier way: using routing keys.
 
@@ -313,7 +313,7 @@ Considering our domain is about animal species, let's assume we define the topic
 * Q1 is bound with '`*.orange.*`', which means it will receive all messages describing orange animals.
 * Q2 is bound with '`*.*.rabbit`' and '`lazy.#`', which means it will receive messages describing all rabbits, and all lazy animals.
 
-### Custom class messages
+#### Custom class messages
 
 For the final part we want to make our example somehow production-usable. One of the missing points on our previous examples was structured messages. Sending messages as String may sound cool, but as your app growths, you will want to have more complex messages. If you look carefully, you saw that we don't send Strings directly into RabbitMQ. Instead we send the corresponding bytes. So if you want to send another POJO, you just need to convert it into bytes as well.
 
@@ -353,13 +353,13 @@ object SerializationUtils {
 
 Now that you know how to convert any serializable class into bytes, you can use more expressive messages very easily.
 
-## Final Remarks
+#### Final Remarks
 
 This was a very introductory look into RabbitMQ, and into message brokers in general. Each implementation provides different capabilities, and some of them, like RabbitMQ, still offer a wide range of plugins. Nevertheless, message brokers allow you to decouple communication between components of your application, making it easier to scale when needed.
 
 As such, you should take message brokers into account when designing your new architecture.
 
-### Resources
+#### Resources
 
 * [AMQP concepts](https://www.rabbitmq.com/tutorials/amqp-concepts.html)
 * [series of 5 official RabbitMQ tutorials](https://www.rabbitmq.com/tutorials/tutorial-one-java.html)
