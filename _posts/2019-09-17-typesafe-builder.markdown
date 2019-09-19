@@ -15,7 +15,7 @@ I've defended [this]({{ site.url }}/blog/tuples-are-evil/) [idea]({{ site.url }}
 
 How many of us had to debug a production issue because the code was using two function parameters in the wrong order with the same type (most likely Strings...) ? If the types were different, the compiler would have detected the problem before going into production.
 
-In this blog post I want to talk about a recent situation I faced myself: an usage of the builder pattern that become too much error prone.
+In this blog post I want to talk about a recent situation I faced myself: a usage of the builder pattern that became too much error prone.
 
 ### The Builder pattern
 
