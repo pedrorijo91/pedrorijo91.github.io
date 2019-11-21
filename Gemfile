@@ -1,10 +1,10 @@
 source 'https://rubygems.org'
-gem 'github-pages', '>= 198'
-gem 'nokogiri'
+gem 'github-pages', '>= 200'
+gem 'nokogiri', '>= 1.10.5'
 gem 'jekyll-feed'
 gem 'jekyll-paginate'
 gem "jekyll", ">= 3.7.4"
 gem 'jekyll-redirect-from'
-gem 'html-proofer'
+gem 'html-proofer', '>= 3.12.2'
 gem 'percy-cli'
 gem "rubyzip", ">= 1.3.0"
