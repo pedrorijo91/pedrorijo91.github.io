@@ -6,5 +6,5 @@ gem 'jekyll-paginate'
 gem "jekyll", ">= 3.7.4"
 gem 'jekyll-redirect-from'
 gem 'html-proofer', '>= 3.12.2'
-gem 'percy-cli'
+gem 'percy-cli', '>= 1.4.0'
 gem "rubyzip", ">= 1.3.0"
