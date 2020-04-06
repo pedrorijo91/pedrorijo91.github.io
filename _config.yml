@@ -32,7 +32,6 @@ stackoverflow_username: 4398050/pedrorijo91
 plugins:
   - jekyll-mentions
   - jemoji
-  - jekyll-feed
   - jekyll-paginate
   - jekyll-seo-tag
   - jekyll-redirect-from
