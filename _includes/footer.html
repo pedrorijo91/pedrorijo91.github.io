@@ -4,6 +4,12 @@
 
               <div class="footer-links">
                 <ul class="noList">
+                  <li><a href="{{ site.newsletter}}">
+                      <span class="fa-stack fa-lg">
+                        <i class="fa fa-square-o fa-stack-2x"></i>
+                        <i class="fa fa-envelope fa-stack-1x"></i>
+                      </span>
+                  </a></li>
                   <li><a href="{{ "/feed.xml" | prepend: site.baseurl }}">
                     <span class="fa-stack fa-lg">
                       <i class="fa fa-square-o fa-stack-2x"></i>
@@ -32,12 +38,6 @@
                     <span class="fa-stack fa-lg">
                       <i class="fa fa-square-o fa-stack-2x"></i>
                       <i class="fa fa-linkedin fa-stack-1x"></i>
-                    </span>
-                  </a></li>
-                  <li><a href="mailto:{{ site.email }}">
-                    <span class="fa-stack fa-lg">
-                      <i class="fa fa-square-o fa-stack-2x"></i>
-                      <i class="fa fa-envelope fa-stack-1x"></i>
                     </span>
                   </a></li>
                 </ul>
