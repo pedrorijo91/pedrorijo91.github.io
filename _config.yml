@@ -1,5 +1,6 @@
 name: Spaghetti and Hammers
 description: Personal site of Pedro Rijo (@pedrorijo91). Writing about Scala, Java, Functional Programming, git, and whatever I find time to learn about.
+author: Pedro Rijo (@pedrorijo91)
 url: https://pedrorijo.com
 paginate_path: "blog/page:num/"
 permalink: blog/:title/
