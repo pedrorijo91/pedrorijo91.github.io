@@ -21,13 +21,7 @@ navigation:
  - title: Presentations
    url: /presentations
 
-email: pedrorijo91@gmail.com
 newsletter: https://mailchi.mp/f9d5cd479369/pedrorijo91
-twitter_username: pedrorijo91
-github_username:  pedrorijo91
-linkedin_username: pedrorijo91
-hackernews_username: pedrorijo91
-stackoverflow_username: 4398050/pedrorijo91
 
 plugins:
   - jekyll-mentions
