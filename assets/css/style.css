@@ -761,6 +761,10 @@ a:hover {
     padding-left: 0;
 }
 
+.contact-icon {
+    margin-left: 0.2rem;
+}
+
 dt {
     font-weight: bold;
 }
