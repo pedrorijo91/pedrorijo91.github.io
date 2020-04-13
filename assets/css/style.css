@@ -866,6 +866,7 @@ dd {
 
 .post figure {
     margin: 3rem 0;
+    text-align: center;
 }
 
 .post figure figcaption {
