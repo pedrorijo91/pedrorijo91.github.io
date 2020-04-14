@@ -9,7 +9,7 @@ layout: default
 	  	</div>
 	{% endif %}
 	<h2 class="postTitle">{{ page.title }}</h2>
-	<p class="meta">{{ page.date | date: '%B %d, %Y' }} | <span class="time">{{ page.content | number_of_words | divided_by:180 }}</span> Minute Read | <a href="{{ page.url }}index.html#disqus_thread" data-disqus-identifier="{{page.url}}"></a></p>
+	<p class="meta">{{ page.date | date: '%B %d, %Y' }} | <span class="time">{{ page.content | number_of_words | divided_by:180 }}</span> Minute Read</p>
 
 	<div class="post-body">
 	{{ content }}
@@ -44,21 +44,4 @@ layout: default
 	  	</a>
 	  {% endif %}
 	</div>
-
-	<div id="disqus_thread"></div>
-	  <script type="text/javascript">
-	  	  if("{{ site.url }}".indexOf("localhost") === -1) {
-		      var disqus_shortname = 'pedrorijo91';
-					var disqus_identifier = "{{ page.url }}";
-		      (function() {
-		          var dsq = document.createElement('script');
-							dsq.type = 'text/javascript';
-							dsq.async = true;
-		          dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-		          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-		      })();
-   	  	  }
-	  </script>
-	  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-
 </div>
