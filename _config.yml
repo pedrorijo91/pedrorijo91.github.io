@@ -20,6 +20,9 @@ navigation:
    url: /external
  - title: Presentations
    url: /presentations
+ - title: Newsletter
+   url: https://mailchi.mp/f9d5cd479369/pedrorijo91
+   external: true
 
 newsletter: https://mailchi.mp/f9d5cd479369/pedrorijo91
 
