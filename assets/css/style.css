@@ -915,8 +915,10 @@ div .highlighter-rouge {
 }
 
 .post .post-tag {
-  background-color: #2e8b57;
-  color: #fff;
+  background-color: rgba(46, 138, 86, 0.3);
+  color: #000;
+  border: 2px solid #2e8b57;
+  border-radius: .75em;
   display: inline;
   padding: .2em .6em .3em;
   font-size: 75%;
@@ -924,7 +926,6 @@ div .highlighter-rouge {
   text-align: center;
   white-space: nowrap;
   vertical-align: baseline;
-  border-radius: .25em;
   margin-right: 5px;
   text-decoration: none;
 }

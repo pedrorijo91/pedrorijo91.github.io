@@ -6,7 +6,7 @@ date: 2019-12-01 15:00:00
 description: 'My experience coming from the JVM into front-end development with React'
 image: react-logo.png
 
-tags: [react, frontend]
+tags: [frontend, react, redux]
 ---
 
 <span class="dropcap">R</span>ecently I decided to face a new career challenge at [TripAdvisor](https://www.tripadvisor.com/). One of the biggest reasons I wanted this change was to be able to leave a pure java backend position and becoming fullstack. 
