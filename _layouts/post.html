@@ -22,19 +22,5 @@ layout: default
 		{% endfor %}
 	</div>
 
-	<!-- FIXME extract -->
-	<!-- POST NAVIGATION -->
-	<div class="postNav clearfix">
-	  {% if page.previous.url %}
-	    <a class="prev" href="{{ site.url }}{{page.previous.url}}">
-			<span class="post-nav-title">← {% if page.previous.shortTitle %} {{ page.previous.shortTitle }} {% else %}{{ page.previous.title }}{% endif %}</span>
-
-		</a>
-	  {% endif %}
-	  {% if page.next.url %}
-	    <a class="next" href="{{ site.url }}{{page.next.url}}">
-			<span class="post-nav-title">{% if page.next.shortTitle %} {{ page.next.shortTitle }} {% else %}{{ page.next.title }}{% endif %} →</span>
-	  	</a>
-	  {% endif %}
-	</div>
+	{% include nav.html %}
 </div>
