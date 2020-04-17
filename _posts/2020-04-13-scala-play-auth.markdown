@@ -2,6 +2,7 @@
 layout: post
 
 title: 'Implementing Authentication on Play Framework'
+shortTitle: 'Authentication on Play Framework'
 date: 2020-04-13 18:00:00
 description: 'Implementing User Authentication on Scala Play Framework'
 image: 

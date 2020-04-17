@@ -2,6 +2,7 @@
 layout: post
 
 title: 'Strings are not the type you are looking for'
+shortTitle: 'Stop using Strings'
 date: 2018-08-31 19:00:00
 description: 'Why use statically typed languages when all of your types are Strings? Forget about Primitive Obsession and leverage the type system for code correctness'
 

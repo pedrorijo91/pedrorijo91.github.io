@@ -2,6 +2,7 @@
 layout: post
 
 title:  'Creating forms on your Play application - Part 2'
+shortTitle: 'Play forms - Part 2'
 date:   2018-02-20 21:00:00
 description: 'Advanced HTML forms in Play framework.'
 image:  scala-logo.png

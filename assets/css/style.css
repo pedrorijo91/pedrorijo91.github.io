@@ -934,6 +934,7 @@ div .highlighter-rouge {
     border-bottom: 1px solid #e6e6e6;
     border-top: 1px solid #e6e6e6;
     overflow: hidden;
+    margin-top: 30px;
 }
 
 .postNav .prev, .postNav .next {
@@ -945,8 +946,13 @@ div .highlighter-rouge {
     overflow: hidden;
     position: relative;
     text-align: center;
-    text-transform: uppercase;
     width: 100%;
+    text-decoration: none;
+}
+
+.post-nav-title {
+    border: 2px solid #2e8b57;
+    border-radius: .75em;
 }
 
 .postNav .prev img, .postNav .next img {
@@ -1122,6 +1128,15 @@ div .highlighter-rouge {
 
 .header-link:hover {
     opacity: 1;
+}
+
+@media only screen and (max-width: 800px) {
+    .post-nav-title {
+        border: 2px solid #2e8b57;
+        border-radius: .75em;
+        display: inline-block;
+        margin-top: 20px;
+    }
 }
 
 @media only screen and (min-width: 800px) {

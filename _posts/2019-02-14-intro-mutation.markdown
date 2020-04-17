@@ -2,6 +2,7 @@
 layout: post
 
 title: 'An intro to Mutation Testing - or why coverage sucks'
+shortTitle: 'An intro to Mutation Testing'
 date: 2019-02-14 12:00:00
 description: 'A intro to Mutation Testing, a technique that has become robust enough to be seen as a reliable alternative to Code Coverage as the de facto metric for assessing your unit tests quality.'
 image:  x-men.jpg
