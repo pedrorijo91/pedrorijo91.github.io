@@ -761,10 +761,6 @@ a:hover {
     padding-left: 0;
 }
 
-.nav-link {
-    text-shadow: 2px 2px black;
-}
-
 .contact-icon {
     margin-left: 0.2rem;
 }
@@ -1237,6 +1233,7 @@ div .highlighter-rouge {
         letter-spacing: -3px;
         line-height: 1;
         padding-left: 0;
+        margin: 20px 0px 0px 0px;
     }
     .header nav {
         clear: left;
@@ -1271,6 +1268,7 @@ div .highlighter-rouge {
     }
     .js .nav-collapse.closed {
         max-height: none;
+        margin-top: 10px;
     }
     .js .nav-collapse ul li a {
         display: inline-block;
