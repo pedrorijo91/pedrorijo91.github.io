@@ -2,6 +2,7 @@
 layout: post
 
 title:  'Creating forms on your Play application - Part 1'
+shortTitle: 'Creating forms on Play - Part 1'
 date:   2018-02-01 22:00:00
 description: 'How to create simple HTML forms in Play framework.'
 image:  play-logo.png
