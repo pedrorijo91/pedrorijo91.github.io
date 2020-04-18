@@ -1144,7 +1144,7 @@ div .highlighter-rouge {
 #mc_embed_signup input[type="email"], #mc_embed_signup input[type="text"] {
     background: #fff;
     border: #000 solid 1px;
-    border-radius: .75em;
+    border-radius: 4px;
     width: 90%;
     padding-left: 10px;
 }
