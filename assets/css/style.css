@@ -1130,6 +1130,35 @@ div .highlighter-rouge {
     opacity: 1;
 }
 
+#mc_embed_signup {
+    background: #f7f7f7;
+    border: #909497 solid 1px;
+    border-radius: .75em;
+    padding: 20px 0px 0px 20px;
+    max-width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+}
+
+#mc_embed_signup input[type="email"], #mc_embed_signup input[type="text"] {
+    background: #fff;
+    border: #000 solid 1px;
+    border-radius: .75em;
+    width: 90%;
+    padding-left: 10px;
+}
+
+#mc_embed_signup div.clear {
+    margin-top: 20px;
+    border-radius: .75em;
+}
+
+#mc_embed_signup .mce_inline_error {
+    width: 90%;
+    border-radius: .75em;
+}
+
 @media only screen and (max-width: 800px) {
     .post-nav-title {
         border: 2px solid #2e8b57;
