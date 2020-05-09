@@ -4,6 +4,7 @@ layout: post
 title: 'Newsletter'
 date: 2020-04-15 14:00:00
 image: 
+disableComments: true
 
 tags: []
 ---

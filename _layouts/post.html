@@ -12,10 +12,14 @@ layout: default
 	<p class="meta">{{ page.date | date: '%B %d, %Y' }} | <span class="time">{{ page.content | number_of_words | divided_by:180 }}</span> Minute Read</p>
 
 	<div class="post-body">
-	{{ content }}
+		{{ content }}
 	</div>
 
 	{% include tags.html %}
+
+	{% unless page.disableComments %}
+		{% include comments.html %}
+	{% endunless %}
 
 	{% include nav.html %}
 
