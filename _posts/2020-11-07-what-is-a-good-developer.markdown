@@ -4,6 +4,7 @@ layout: post
 title: 'What is a good developer?'
 date: 2020-11-07 20:00:00
 image: super_developer.png
+description: 'How to be a good developer - beyond the technical skills'
 
 tags: [interview, development pratices]
 ---
