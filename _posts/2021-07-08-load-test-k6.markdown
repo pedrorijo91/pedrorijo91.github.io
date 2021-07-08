@@ -1,0 +1,23 @@
+---
+layout: post
+
+title: 'Load testing using k6'
+date: 2021-07-08 20:00:00
+description: 'Load testing a service using k6'
+
+tags: [load test]
+---
+
+<span class="dropcap">L</span>ast November I decided to join [Onfido](https://onfido.com/). Since I've joined, we have been focusing a lot on ensuring our systems scale and are able to hold the expected load for the foreseen future. And to ensure that we are creating a set of load tests for each system.
+
+Today I just wanted to share a tool we've been using at Onfido that seems quite easy and nice: [k6](https://k6.io/). I'm amazed by the simplicity in creating a load test from scratch, so I wanted to share it with you. I'm not going into many details as their documentation is fairly easy and complete, [just have a look!](https://k6.io/docs/using-k6/scenarios/executors/constant-arrival-rate/)
+
+In case you are not familiar with the concept, a [load test](https://en.wikipedia.org/wiki/Load_testing) is a specific type of automated test where we add a given load (e.g., 100 requests per second) to our system under test. In the end, we see if the system is able to respect the defined [SLOs](https://cloud.google.com/blog/products/devops-sre/sre-fundamentals-slis-slas-and-slos).
+
+Just a few hints if you are new to load tests:
+
+1. Different requests may produce different load in your system depending on your business logic. So try to create a representative sample of your production traffic
+
+2. Use a dummy client for load test. In normal code, we'd apply some retry strategy because network failures will happen. But in load testing, we shouldn't do that (unless you really know what you are doing). Firstly because your system wouldn't be under 100 requests per second (or whatever load you define), but if too many retries happen, you could be provoking an increased load (unless your retry strategy can prevent back-pressure efficiently).
+
+3. There's a very interesting problem in load test / benchmarking tools: the [coordinated omission problem](http://highscalability.com/blog/2015/10/5/your-load-generator-is-probably-lying-to-you-take-the-red-pi.html). So make sure you understand it before starting your measurements, otherwise your metrics can be useless. Luckily for us, [k6 has mechanisms to avoid this problem](https://community.k6.io/t/is-k6-safe-from-the-coordinated-omission-problem/1484).
