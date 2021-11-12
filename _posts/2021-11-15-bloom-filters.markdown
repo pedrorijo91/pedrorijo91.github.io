@@ -51,34 +51,34 @@ Let's go through what happens when we try to add an element:
 We'll assume we have a Bloom filter where *m = 10* and *k = 3*. As such we'll have 3 independent hash functions and a bitmap with 10 elements (indexed from 0 to 9), each initialized as *0*
 
  <figure>
-  <img src='/assets/img/bloom_add_0.png' title='Initial state for our Bloom filter' width='600px'/>
+  <img src='/assets/img/bloom_filter/bloom_add_0.png' title='Initial state for our Bloom filter' width='600px'/>
   <figcaption>Initial state for our Bloom filter</figcaption>
 </figure> 
 
 Now we want to add the element `"random_string"` to our Bloom filter. We start by hashing the element with the first hash function. The output of the hash function will determine what changes we'll need to apply to the bitmap. 
 
  <figure>
-  <img src='/assets/img/bloom_add_1.png' title='Element hashed through hash function 1' width='600px'/>
+  <img src='/assets/img/bloom_filter/bloom_add_1.png' title='Element hashed through hash function 1' width='600px'/>
   <figcaption>Element hashed through hash function 1 - output is (index) 7</figcaption>
 </figure> 
 
 Let' imagine the output is 7. This means we'll mark the bitmap index 7 as *1*.
 
  <figure>
-  <img src='/assets/img/bloom_add_2.png' title='Bitmap index 7 is now marked' width='600px'/>
+  <img src='/assets/img/bloom_filter/bloom_add_2.png' title='Bitmap index 7 is now marked' width='600px'/>
   <figcaption>Bitmap index 7 is now marked</figcaption>
 </figure> 
 
 At this moment we have bitmap `0000000100`. We now need to hash the element with the other two hash functions.
 
  <figure>
-  <img src='/assets/img/bloom_add_3.png' title='Element hashed through all hash functions' width='600px'/>
+  <img src='/assets/img/bloom_filter/bloom_add_3.png' title='Element hashed through all hash functions' width='600px'/>
   <figcaption>Element hashed through all hash functions</figcaption>
 </figure> 
 
 
  <figure>
-  <img src='/assets/img/bloom_add_4.png' title='Bitmap index 2 is now marked as well' width='600px'/>
+  <img src='/assets/img/bloom_filter/bloom_add_4.png' title='Bitmap index 2 is now marked as well' width='600px'/>
   <figcaption>Bitmap index 2 is now marked as well</figcaption>
 </figure> 
 
@@ -87,12 +87,12 @@ Notice that for this particular element the third hash function returned the sam
 What if we added another element? Adding more elements would be just about repeating the process:
 
  <figure>
-  <img src='/assets/img/bloom_add_5.png' title='New element hashed through all hash functions' width='600px'/>
+  <img src='/assets/img/bloom_filter/bloom_add_5.png' title='New element hashed through all hash functions' width='600px'/>
   <figcaption>New element hashed through all hash functions</figcaption>
 </figure> 
 
  <figure>
-  <img src='/assets/img/bloom_add_6.png' title='Bitmap indexes marked after inserting another element' width='600px'/>
+  <img src='/assets/img/bloom_filter/bloom_add_6.png' title='Bitmap indexes marked after inserting another element' width='600px'/>
   <figcaption>Bitmap indexes marked after inserting another element</figcaption>
 </figure> 
 
@@ -103,14 +103,14 @@ How can we now check if some element exists in the Bloom filter?
 Looking up for an element starts by hashing it through all the hash functions:
 
  <figure>
-  <img src='/assets/img/bloom_lookup_0.png' title='Lookup element hashed through all hash functions' width='600px'/>
+  <img src='/assets/img/bloom_filter/bloom_lookup_0.png' title='Lookup element hashed through all hash functions' width='600px'/>
   <figcaption>Lookup element hashed through all hash functions</figcaption>
 </figure> 
 
 We now look if any of the indicated bits is not set. This would mean the element is not present for sure. 
 
  <figure>
-  <img src='/assets/img/bloom_lookup_1.png' title='Bitmap indexes marked after inserting new element' width='600px'/>
+  <img src='/assets/img/bloom_filter/bloom_lookup_1.png' title='Bitmap indexes marked after inserting new element' width='600px'/>
   <figcaption>Bitmap indexes checked for lookup. Index 3 is not marked - Element does not belong to set</figcaption>
 </figure> 
 
