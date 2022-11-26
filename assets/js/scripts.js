@@ -47,3 +47,22 @@ document.onreadystatechange = function() {
         }
     }
 };
+
+// counter on external posts
+document.onreadystatechange = function() {
+    if (this.readyState === "complete") {
+        const sections = document.getElementsByClassName("external-section");
+        if (!sections) {
+            return;
+        }
+
+        for(var i = 0; i < sections.length; i++) {
+            const section = sections[i];
+
+            const badge = section.getElementsByClassName("js-badge")[0]
+            const count = section.getElementsByTagName("ul")[0].children.length 
+
+            badge.innerHTML = `(${count})`
+        }
+    }
+};
