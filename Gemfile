@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-gem 'github-pages', '>= 207'
+gem 'github-pages', '>= 208'
 gem 'nokogiri', '>= 1.10.5'
 gem 'jekyll-feed'
 gem 'jekyll-paginate'
