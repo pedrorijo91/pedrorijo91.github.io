@@ -1,0 +1,65 @@
+---
+layout: post
+
+title: 'My Hands-On Experience with Gen-AI'
+date: 2024-12-24 12:00:00
+description: 'Some thoughts on my experience using the latest Gen-AI tools'
+
+tags: []
+---
+
+Oh look, another post about Gen-AI!
+
+I promise it will not. Just want to share my real experience with the latest *Silver Bullet* that tech has brought to us. This is surely not an in-depth review of any of the available tools in the market.
+
+As you may already know, or maybe not, I'm usually very skeptical of the latest hype coming from Silicon Valley. I was skeptical about Crypto, Blockchain and Web3, I was skeptical about VR, and with a few other technologies. But some of them have been great indeed: IoT, Voice AI, Wearables, and so on.
+
+The latest big thing, Gen-AI, was especially interesting because it promises to replace developers — a shift that could make me unemployed 😃. It has also been pitched as a 10x productivity tool. So I gave it a try.
+
+### Gen-AI for coding
+
+I tried both ChatGPT and GitHub Copilot. 
+
+#### GitHub Copilot
+
+Copilot has a nice integration with IDEs. I tested on VS Code and mostly on Intellij. It has been working well as sort of an auto complete on steroids. It can detect patterns and do some suggestions. Even though some of them use variables and methods that do not exist, which shows it's an LLM without any programming language syntax knowledge it has just been trained with more code examples than 'normal text'.
+
+The IntelliJ integration also offers a chat window, which from my experience sucks and it was not very useful ¯\\_(ツ)_/¯
+
+#### ChatGPT
+
+For ChatGPT I've been using both the free version for personal use, and a paid license at work. I think the major difference was in uploading and generating images, to be honest. But I'm also not a heavy user...
+
+I feel ChatGPT is way better at generating code, explaining pasted code, and providing solutions to some problems.
+
+This has been my favorite choice, comparing to Copilot.
+
+My take is that for large codebases, with complex domains, and a lot of in-house libraries, the value is smaller.
+
+On the other hand, I recently started playing with Ruby on Rails (RoR) and created a toy side project (feel free to check - [https://how-often.onrender.com/](https://how-often.onrender.com/)), and it has been extremely useful. It has been useful for explaining some of the code added through Rails generators, and to show the best way to achieve something. Since Rails has so much magic (also called [Convention over Configuration](https://rubyonrails.org/doctrine#convention-over-configuration)) this may be a great domain for ChatGPT.
+
+With a very simple domain, ChatGPT has been useful in many places. Another common request I made was to write unit tests. While I needed to clean it up, there were just a few minor things like asserting too many details instead of keeping high level assertions. And after having a couple of them to provide as an example, it generated almost perfect tests.
+
+I also decided to use Tailwind CSS to get some frontend styling done. While implementing authentication with [Devise](https://github.com/heartcombo/devise), I had some Rails template views offered by the gem. But it's a very simple view without any CSS. So I wanted to apply a Tailwind template to the 5 or 6 authentications views (login, sign-up, recover password, etc). I started doing that manually at first. Then I remembered to ask ChatGPT, and in 3 minutes it was all done 🎉
+
+Still, it is not perfect.
+
+While doing this, for some reason, it changed one of the forms to send a POST request instead of PUT. Which caused the form to fail and it was not super easy to spot. 
+
+Another situation was while creating the unit tests, I needed some [fixtures](https://api.rubyonrails.org/v3.1/classes/ActiveRecord/Fixtures.html). And because the entities were related the creation order was causing failures. I wanted to customize the order by which fixtures were being created to avoid that. And I remember ChatGPT failing in a very trivial thing by saying that 
+
+> fixtures are created in alphabetical order, so in your case it will pick `users.yml` first, then `activities.yml`, and finally `occurrences.yml`, which means it will work just fine.
+
+I think we can all agree the alphabetical order for those 3 files is not that one 😅
+
+### Gen-AI for logos
+
+I wanted to have some icon for my app. But I'm not a designer. So I googled for something that could generate a log for me. I tested both [Looka](https://looka.com/) and [Brandmark](https://app.brandmark.io/v3/).
+
+They work very similarly by asking the name, and then we have a prompt to refine the generated logos. Then we can customize color scheme and a few other details.
+
+While both had nice results for free, it seems Looka is more focused on what I was looking for, while Brandmark creates a full brand. They also offered a more complete set of things for paying users. But since I was mostly looking for a logo, the free tier was great.
+
+### Conclusion
+
+While I dont see Gen-AI replacing developers in the future, they can be a great productiviy tool for us. Just like IDEs became an essential productivity tool compared to using simple text editors, Gen-AI can be a more powerful auto-complete, a great reference doc for all languages and major frameworks/libs, and an handy code reviewer 💪
