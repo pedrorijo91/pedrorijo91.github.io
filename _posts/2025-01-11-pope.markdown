@@ -1,0 +1,25 @@
+---
+layout: post
+
+title: 'To be more Catholic than the Pope'
+date: 2025-01-11 12:00:00
+description: 'When to follow the rules and when to break them'
+
+tags: [coding practices]
+---
+
+Recently I was involved in a pull request review discussion where we were discussing if we should follow a more idiomatic approach or if we should bend the rule this one time in order tomake the code cleaner and easier to maintain.
+
+This discussion reminded me of another one I was involved a few years ago. when I was developing mainly in Scala and functional programming.
+
+At the time the discussion was summarised as:
+
+> You don't need to be more Catholic than the Pope
+
+This can be understood as following the rules too strictly. Which goes much in line with the most common answer in computer science: *it depends*.
+
+At the time, I was deep into Scala and functional programming, where immutability is considered a fundamental principle. In one particular discussion, we were debating whether a small method using mutable variables should be refactored or not, despite its potential trade-offs.
+
+While immutability is a very useful concept both for keeping code easier to maintain and to scale through concurrency, we came to the conclusion that as long as mutability was used in a very controlled scope without creeping outside of the method, it could be another good tool for keeping everything cleaner.
+
+In short: Follow the rules when you can, but don’t be afraid to bend them if it makes the code cleaner and easier to maintain—just be mindful of the scope in which you do so to avoid introducing unnecessary complexity.
