@@ -1,0 +1,71 @@
+---
+layout: post
+
+title: 'Recommended books'
+date: 2025-03-15 12:00:00
+description: 'Some technical books I would recommend every engineer to read'
+
+tags: [books]
+---
+
+A few years ago, I started keeping track of the technical books I wanted to read, the ones I had finished, and how interesting they were. And when a friend of mine, who’s diving into web development, asked me for recommendations last month, I decided to revisit my notes.
+
+While there are countless "must-read" lists out there for new developers, I wanted to offer a different perspective. Most of these lists feature books like Clean Code, Code Complete, The Pragmatic Programmer, and Effective Java. While these classics are essential, they often cover concepts found in many engineering blogs or CS courses. I want to introduce you to books that may change the way you work—or at least offer fresh ways of thinking about how to approach your craft.
+
+### How Innovative Companies Build Their Success
+
+Let's start with the first section: how other successful companies work. Keep in mind that this doesn't mean other ways of working are wrong and can't generate success. But it's definitely interesting to see the strategies these companies used to beat their competition and innovate:
+
+* [Working Backwards: Insights, Stories, and Secrets from Inside Amazon](https://www.amazon.com/Working-Backwards-Insights-Stories-Secrets/dp/1250267595)
+
+This was one of the latest books I've read. Amazon is a tech giant. From their e-commerce platform, to AWS, kindle, and many other innovations, you can't simply not know about them. They claim their success to be due to customer obsession and betting on long term successes. They had their own share of failures, sure, but like they say: if you are trying to innovate a lot, you will need to fail (and learn) a lot. Tasty insights into the company who forbidden powerpoint presentations to make their meetings more efficient.
+
+* [No Rules Rules: Netflix and the Culture of Reinvention](https://www.amazon.com/No-Rules-Netflix-Culture-Reinvention/dp/1984877860)
+
+Netflix is known in the heart of Silicon Valley to hire the best of the best. This allows them to build a culture focused on freedom and responsibility, valuing people over process, and letting employees take their own decisions. They focus on giving employees all the required context instead of drowning in layers of bureaucratic controls.
+
+* [It Doesn't Have to Be Crazy at Work](https://www.amazon.com/Doesnt-Have-Be-Crazy-Work/dp/0062874780)
+
+In the current hustler culture embedded in tech you are most likely gonna be working crazy long hours at some point of your career. What if there was a different way of working without sacrificing your mental health and your personal life? That's what the founders of 37 signals preach: work smarter, not harder.
+
+### Building Products that Matter
+
+This section shows different views on how to build a better product. A product with higher success chances.
+
+* [The Phoenix Project: A Novel about IT, DevOps, and Helping Your Business Win](https://www.amazon.com/Phoenix-Project-DevOps-Helping-Business/dp/0988262592)
+
+If you are working in an old-fashioned tech company, it's likely that IT is seen as a cost center, instead of an innovation leverage. This book tells a story of a company which saw IT as a cost center, all the issues it caused and almost led to bankruptcy, and how one person was able to change the failed processes to turn into a successful company. While this doesn't apply to most tech startups, there are a lot of companies and consultancy agencies who still work like that. You need to know there's better places out there 😊
+
+
+* [Inspired: How to Create Tech Products Customers Love](https://www.amazon.com/INSPIRED-Create-Tech-Products-Customers/dp/1119387507)
+
+Some companies see developers as code monkeys. People who are told what to code, and who produce working apps. Other companies see developers as smart people with the technical expertise to guide the direction of the product itself.
+That's one of the big differences that make product-oriented companies more successful at innovating and creating good products. This book shows how teams can change their ways of working to become product oriented instead of building features out of sync with users.
+
+* [The Design of Everyday Things](https://www.amazon.com/Design-Everyday-Things-Revised-Expanded/dp/0465050654)
+
+Have you ever been confused on how to set the proper temperature on your fridge? On what a button means in your washing machine? Are you stupid or is the product badly designed? On the other hand, have you picked a new device for the first time and it felt intuitive how to operate? Learn about the difference between properly designed products and faulty ones.
+
+### Actually technical books
+
+I want to finish by recommending two books who focus on providing an high level view of specific topics:
+
+* [Designing Data-Intensive Applications](https://www.amazon.com/Designing-Data-Intensive-Applications-Reliable-Maintainable/dp/1449373321)
+
+While none of the chapters goes deep into the techniques used for Data Intensive Applications, it provides the reader a full spectrum of possible solutions for the problems you may face in the future. From No-SQL databases, sharding, clustering, to batch vs stream processing, you will have a great overview of what can solve your scalability problems. And when the time comes, you know what you can use, and you simply need to learn a bit more in-depth the specific solution.
+
+* [Microservices in Action](https://www.amazon.com/Microservices-Action-Morgan-Bruce/dp/1617294454)
+
+If you are working with micro-services, as soon as you deploy them in real life you will face many challenges that no one told you about:
+
+* how are you gonna monitor your application across many different services?
+* how to prevent a cascade failure?
+* how to orchestrate calls to multiple services?
+* how to manage rollback transactions from multiple services with independent databases?
+* how are services communicating between them?
+
+This book covers all those important details. Note that the book may not be referring to the latest technologies available, but should be enough to grasp the domain.
+
+### Conclusion
+
+I hope these books offer you fresh perspectives on both how companies operate and how to create better products. While the classics are important, there’s always value in looking beyond the well-trodden paths to find new ways to work smarter, innovate more, and design products that truly make an impact. What books have shaped the way you think about development? Let’s talk about it in the comments!
