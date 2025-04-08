@@ -1,0 +1,56 @@
+---
+layout: post
+
+title: 'The Hidden Downsides of Daily Stand-ups'
+date: 2025-04-09 12:00:00
+description: 'A critical look at daily stand-ups and how they often disrupt focus, delay progress, and become performative rituals instead of productive meetings.'
+
+tags: [development practices]
+---
+
+Daily stand-ups are one of those agile rituals that seem universally accepted—almost dogmatic at this point. For many teams, it’s a quick sync-up to align, share blockers, and plan the day. But while the intent is sound, the execution often introduces more friction than flow. I'd like to share some significant downsides I've experienced in the past.
+
+## 1. An Expensive Context Switch
+
+If you’ve ever read Paul Graham’s excellent piece on [Maker’s Schedule vs Manager’s Schedule](https://www.paulgraham.com/makersschedule.html), you’ll know that meetings in the middle of a maker’s morning are costly. Let’s break down what a typical morning looks like when there's a stand-up at 10:00 AM.
+
+Imagine someone starts working at 9:15 AM:
+
+- 9:15 – 9:30: Checking email, Slack, and other notifications.
+- 9:30 – 9:55: Not enough time for deep work, so we often default to shallow tasks
+- 10:00 – 10:30: Daily stand-up (let's hope it ends on time)
+- 10:30 – 10:40: Quick follow-ups and tangents
+- 10:40 – 11:00: Attempting to regain focus
+- 11:00 – 12:30: Solid block of uninterrupted focus time
+
+At best, true focus begins around 11:00 AM. Then we might get 90 minutes of quality work before lunch distractions kick in. **That’s 90 minutes of productive time in a 195-minute morning window**. And if there's *any* additional meeting—say, a 15-minute one-on-one—focus time is basically gone.
+
+Now compare that to a day *without* a stand-up:
+
+- 9:15 – 9:30: Checking email, Slack, and other notifications.
+- 9:30 – 12:30: Solid block of uninterrupted focus time
+
+That’s **180 minutes of deep work — double the output potential**.
+
+## 2. "I’ll Do It After Stand-up"
+
+A subtle behavioral pattern I’ve noticed: people try to cluster their distractions together—and the daily stand-up becomes the anchor point. If someone gets a PR review request at 4:00 PM, it’s not uncommon to hear:  
+**“I’ll take a look before/after stand-up tomorrow.”**
+
+It’s not necessarily procrastination—just an attempt to batch all the interruptions into a single block. The downside? That small task might wait a full 18 hours, even if it only takes 5 minutes. Multiply that across a team and it starts to drag velocity down.
+
+Similarly, folks will often hold off on raising issues until the stand-up, even when async tools are available. Instead of being a support mechanism, the stand-up becomes a bottleneck for communication and progress.
+
+## 3. Reading the JIRA Board Aloud
+
+Let’s be honest—many daily stand-ups devolve into teams reading their JIRA board. Everyone’s already aware of the tickets in progress by looking at it. We don’t need someone to vocalize, “Yesterday I worked on ABC-123, today I’ll continue working on ABC-123.” There’s rarely new or actionable information exchanged.
+
+If that's the case, is a synchronous meeting even necessary?
+
+## Alternatives?
+
+Tools like [Range](https://www.range.co/blog/asynchronous-daily-standups) and even a simple Slack thread can support asynchronous stand-ups. They preserve the value of sharing updates while eliminating the scheduling cost and focus disruption. Plus, async updates can be revisited later—perfect for distributed teams or those working across time zones.
+
+---
+
+Daily stand-ups *can* be useful—but only if they actually deliver value to the team. If they’re just a ritual, it might be time to question whether they’re helping us move faster or just feel like we are.
