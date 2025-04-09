@@ -6,7 +6,7 @@ date: 2020-11-07 20:00:00
 image: super_developer.png
 description: 'How to be a good developer - beyond the technical skills'
 
-tags: [interview, development pratices]
+tags: [interview, development practices]
 ---
 
 <span class="dropcap">R</span>ecently I've been through a few different recruitment processes. And many times I was asked about the definition of a *Senior Software Engineer*, for good developer traits, what kind of developers I like to work with, and a few other variations of this question.
