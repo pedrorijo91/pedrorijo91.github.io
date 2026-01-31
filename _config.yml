@@ -1,4 +1,5 @@
 name: Spaghetti and Hammers
+title: Spaghetti and Hammers
 description: Personal site of Pedro Rijo (@pedrorijo91). Writing about Scala, Java, Functional Programming, git, and whatever I find time to learn about.
 author: Pedro Rijo (@pedrorijo91)
 url: https://pedrorijo.com
@@ -25,14 +26,6 @@ navigation:
    external: true
 
 newsletter: https://mailchi.mp/f9d5cd479369/pedrorijo91
-
-plugins:
-  - jekyll-mentions
-  - jemoji
-  - jekyll-paginate
-  - jekyll-seo-tag
-  - jekyll-redirect-from
-  - jekyll-sitemap
 
 include: [".well-known"]
 exclude: [vendor]
