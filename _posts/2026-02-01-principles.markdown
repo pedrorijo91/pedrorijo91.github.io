@@ -14,7 +14,7 @@ These are nice guidelines on how to build your applications. Not hard rules, as 
 
 I want to quickly cover some of my favourites and why I found them super useful when working on real-life applications.
 
-## Principle of Least Surprise
+### Principle of Least Surprise
 
 The first principle I would like to cover is the Principle of least surprise, also known as Principle of least astonishment.
 
