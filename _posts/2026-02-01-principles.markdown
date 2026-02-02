@@ -34,7 +34,7 @@ As stated in the previous example, given that code should be easy to read, havin
 
 ### YAGNI
 
-Finally, the You Ain't Gonna Need It principle has become one of my favorites recently. For a long time I always thought that the code should be ready for many possible future improvements, only to understand that 2 or 3 years later, we never actually needed to implement those. Or that we had rewritten the service from scratch given the system requirements changed a lot, which is definitely common in fast growing startups.
+Finally, the You Ain't Gonna Need It principle has become one of my favorites recently. For a long time I always thought that the code should be ready for many possible future improvements, only to understand that 2 or 3 years later, we never actually needed to implement those. Or that we had rewritten the service from scratch given the system requirements changed a lot, which is definitely common in fast-growing startups.
 
 So now I always keep in mind to not add unnecessary things when developing while balancing with making it somehow easy to extend in the future if needed. 
 
