@@ -12,7 +12,7 @@ Software development is full of [principles](https://en.wikipedia.org/wiki/List_
 
 These are nice guidelines on how to build your applications. Not hard rules, as there are always trade-offs for each decision, but usually they are still very valid.
 
-I want to quickly cover some of my favourites and why i found them super useful when working on real-life applications.
+I want to quickly cover some of my favourites and why I found them super useful when working on real-life applications.
 
 ### Principle of Least Surprise
 
