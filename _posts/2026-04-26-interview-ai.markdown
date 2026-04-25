@@ -2,7 +2,7 @@
 layout: post
 
 title: 'Interviewing in the age of AI'
-date: 2026-03-26 12:00:00
+date: 2026-04-26 12:00:00
 description: 'How to interview engineers in the age of AI'
 
 tags: [interview]
@@ -27,8 +27,3 @@ My take is that we should still care about **the fundamentals**. If you don't un
 - Are home challenges still a good signal? 
 - Or are home challenges even a better tool nowadays since we may be able to ask more realistic challenges where the candidate focuses on what really matters and delegates the boilerplate to the AI agent? 
 - Maybe a live system design interview is the only one where we can properly evaluate a candidate's experience? 
-
-
-
-
-
