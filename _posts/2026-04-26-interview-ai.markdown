@@ -2,7 +2,7 @@
 layout: post
 
 title: 'Interviewing in the age of AI'
-date: 2026-04-26 12:00:00
+date: 2026-04-26 11:30:00
 description: 'How to interview engineers in the age of AI'
 
 tags: [interview]
