@@ -8,9 +8,13 @@ description: 'How to enforce tenant isolation at the repository layer using GORM
 tags: [go, gorm, development practices]
 ---
 
-Multi-tenant applications have a critical invariant: a user must never see another user's data. This sounds obvious, but in practice it only takes one forgotten `WHERE` clause for a data leak to happen. If your application has users grouped into organizations, companies, or teams, every database query touching tenant data must be scoped to the right tenant.
+Most modern web applications have users. Many of them also have some sort of groupping like company or organizations. And now you start having a big concern: how do you ensure you're not exposing other users data? 
+
+This was a problem I saw happening multiple times in my career. Specially when you have more junior developers on the team, or AI agents writing code, is very easy to forget about adding the check in a given query.
 
 The typical approach is to add a `WHERE organization_id = ?` to each query and rely on code reviews to catch any omissions. But code reviews are fallible, and a missed filter in a single query can expose sensitive data. What if we could make it structurally impossible to forget?
+
+Even though you may say you will add guidelines for reviewing agents, these are not deterministic. Nothing beats type-safety at compile time.
 
 In this post I will walk through a pattern I have been using with [GORM](https://gorm.io/) that enforces tenant scoping at the type level, so the compiler and your linter do the checking instead of relying on human reviewers.
 
