@@ -8,13 +8,11 @@ description: 'How to enforce tenant isolation at the repository layer using GORM
 tags: [go, gorm, development practices]
 ---
 
-Most modern web applications have users. Many of them also have some sort of groupping like company or organizations. And now you start having a big concern: how do you ensure you're not exposing other users data? 
+Most modern web applications have users. Many of them also have some sort of grouping like companies or organizations. And now you start having a big concern: how do you ensure you're not exposing other users' data?
 
-This was a problem I saw happening multiple times in my career. Specially when you have more junior developers on the team, or AI agents writing code, is very easy to forget about adding the check in a given query.
+This was a problem I saw happening multiple times in my career. Especially when you have more junior developers on the team, or AI agents writing code, it's very easy to forget about adding the check in a given query.
 
 The typical approach is to add a `WHERE organization_id = ?` to each query and rely on code reviews to catch any omissions. But code reviews are fallible, and a missed filter in a single query can expose sensitive data. What if we could make it structurally impossible to forget?
-
-Even though you may say you will add guidelines for reviewing agents, these are not deterministic. Nothing beats type-safety at compile time.
 
 In this post I will walk through a pattern I have been using with [GORM](https://gorm.io/) that enforces tenant scoping at the type level, so the compiler and your linter do the checking instead of relying on human reviewers.
 
@@ -29,28 +27,28 @@ Most Go web applications follow a familiar structure:
 A naive repository might look like this:
 
 ```go
-type OrderRepository struct {
+type ProjectRepository struct {
     db *gorm.DB
 }
 
-func (r *OrderRepository) GetOrder(orderID string) (*Order, error) {
-    var order Order
-    err := r.db.Where("id = ?", orderID).First(&order).Error
-    return &order, err
+func (r *ProjectRepository) GetProject(projectID string) (*Project, error) {
+    var project Project
+    err := r.db.Where("id = ?", projectID).First(&project).Error
+    return &project, err
 }
 ```
 
-The problem is clear: nothing stops a user from fetching an order that belongs to a different organization. The developer has to remember to add the scope every single time:
+The problem is clear: nothing stops a user from fetching a project that belongs to a different organization. The developer has to remember to add the scope every single time:
 
 ```go
-func (r *OrderRepository) GetOrder(orgID, orderID string) (*Order, error) {
-    var order Order
-    err := r.db.Where("id = ? AND organization_id = ?", orderID, orgID).First(&order).Error
-    return &order, err
+func (r *ProjectRepository) GetProject(orgID, projectID string) (*Project, error) {
+    var project Project
+    err := r.db.Where("id = ? AND organization_id = ?", projectID, orgID).First(&project).Error
+    return &project, err
 }
 ```
 
-This works, but it relies on discipline. Every new query, every new repository method, every new developer on the team must remember the rule. And if someone forgets, the bug is silent: the query succeeds, it just returns data it should not.
+This works, but it relies on discipline. Every new query, every new repository method, every new developer on the team must remember the rule. And if someone forgets, the bug is silent: the query succeeds, it just returns data it should not. Until you end up on the Hacker News front page.
 
 ### The scoped QueryClient pattern
 
@@ -82,34 +80,34 @@ func (qc *QueryClient) OrgID() string {
 Now every repository method takes a `*QueryClient` instead of a raw `*gorm.DB`:
 
 ```go
-type OrderRepository struct{}
+type ProjectRepository struct{}
 
-func (r *OrderRepository) GetOrder(qc *QueryClient, orderID string) (*Order, error) {
-    var order Order
-    err := qc.DB().Where("id = ?", orderID).First(&order).Error
-    return &order, err
+func (r *ProjectRepository) GetProject(qc *QueryClient, projectID string) (*Project, error) {
+    var project Project
+    err := qc.DB().Where("id = ?", projectID).First(&project).Error
+    return &project, err
 }
 
-func (r *OrderRepository) ListOrders(qc *QueryClient) ([]Order, error) {
-    var orders []Order
-    err := qc.DB().Find(&orders).Error
-    return orders, err
+func (r *ProjectRepository) ListProjects(qc *QueryClient) ([]Project, error) {
+    var projects []Project
+    err := qc.DB().Find(&projects).Error
+    return projects, err
 }
 ```
 
-The generated SQL for `ListOrders` will automatically include `WHERE organization_id = ?` because the scope was applied when the `QueryClient` was created. Developers writing repository methods do not need to think about it.
+The generated SQL for `ListProjects` will automatically include `WHERE organization_id = ?` because the scope was applied when the `QueryClient` was created. Developers writing repository methods do not need to think about it.
 
 ### Wiring it through the layers
 
 The handler layer is where we know who the user is, so that is where the `QueryClient` is created:
 
 ```go
-func (h *OrderHandler) GetOrder(w http.ResponseWriter, r *http.Request) {
+func (h *ProjectHandler) GetProject(w http.ResponseWriter, r *http.Request) {
     user := auth.UserFromContext(r.Context()) // extracted from JWT or session
-    orderID := chi.URLParam(r, "orderID")
+    projectID := chi.URLParam(r, "projectID")
 
     qc := NewQueryClient(h.db, user.OrganizationID)
-    order, err := h.orderService.GetOrder(qc, orderID)
+    project, err := h.projectService.GetProject(qc, projectID)
     // ...
 }
 ```
@@ -117,12 +115,12 @@ func (h *OrderHandler) GetOrder(w http.ResponseWriter, r *http.Request) {
 The service layer passes the `QueryClient` along:
 
 ```go
-type OrderService struct {
-    orderRepo *OrderRepository
+type ProjectService struct {
+    projectRepo *ProjectRepository
 }
 
-func (s *OrderService) GetOrder(qc *QueryClient, orderID string) (*Order, error) {
-    return s.orderRepo.GetOrder(qc, orderID)
+func (s *ProjectService) GetProject(qc *QueryClient, projectID string) (*Project, error) {
+    return s.projectRepo.GetProject(qc, projectID)
 }
 ```
 
@@ -147,28 +145,26 @@ func (qc *QueryClient) Transaction(fn func(txQC *QueryClient) error) error {
 Service-layer code that needs a transaction still never touches a raw `*gorm.DB`:
 
 ```go
-func (s *OrderService) PlaceOrder(qc *QueryClient, req PlaceOrderRequest) error {
+func (s *ProjectService) CreateProject(qc *QueryClient, req CreateProjectRequest) error {
     return qc.Transaction(func(txQC *QueryClient) error {
-        order := &Order{
+        project := &Project{
             ID:             uuid.New().String(),
             OrganizationID: txQC.OrgID(),
             // ...
         }
-        if err := s.orderRepo.Create(txQC, order); err != nil {
+        if err := s.projectRepo.Create(txQC, project); err != nil {
             return err
         }
-        return s.auditRepo.LogEvent(txQC, "order_created", order.ID)
+        return s.auditRepo.LogEvent(txQC, "project_created", project.ID)
     })
 }
 ```
 
 ### Enforcing the pattern with a linter
 
-The pattern already gives us structural safety, but we can go further. A simple linter rule or a [go-vet analyzer](https://pkg.go.dev/golang.org/x/tools/go/analysis) can flag any repository method that accepts `*gorm.DB` instead of `*QueryClient`. This turns a convention into a compile-time (or CI-time) check.
+The pattern already gives us structural safety. And even tough it would be hard for a developer to miss the existing pattern, we can go further. A simple linter rule or a [go-vet analyzer](https://pkg.go.dev/golang.org/x/tools/go/analysis) can flag any repository method that accepts `*gorm.DB` instead of `*QueryClient`. This turns a convention into a compile-time (or CI-time) check.
 
 A minimal approach: use `grep` or `ast` inspection to ensure that no exported function in your `repository` package has a `*gorm.DB` parameter. If your team uses [revive](https://github.com/mgechev/revive) or [golangci-lint](https://golangci-lint.run/), a custom rule can enforce this in CI.
-
-Even simpler: keep `*gorm.DB` unexported inside a dedicated `db` package and only export the `QueryClient` constructor. If the only way to get a database handle for queries is through `NewQueryClient`, the scope is enforced by the package boundary itself.
 
 ### When you need unscoped access
 
@@ -182,17 +178,11 @@ func NewUnscopedClient(db *gorm.DB) *UnscopedClient {
 
 By using a different type (`*UnscopedClient`), repository methods that require tenant scoping cannot accidentally receive an unscoped client. If a method signature expects `*QueryClient`, passing an `*UnscopedClient` is a compile error. This makes the unscoped path explicit and auditable.
 
-### Why not middleware?
-
-A common alternative is to set the tenant scope in HTTP middleware and store it in the request context. While this works, it has a downside: the scoping is implicit. Any function that receives a `context.Context` _might_ have a tenant scope attached, or it might not. There is no type-level guarantee, and nothing prevents a developer from passing a background context to a repository method.
-
-With the `QueryClient` pattern, the guarantee is structural: if you have a `*QueryClient`, the scope is there. If you don't have one, you cannot call the repository method.
-
 ### Conclusion
 
-The core idea is simple: make the correct thing easy and the wrong thing impossible (or at least hard). By replacing raw `*gorm.DB` access with a scoped `QueryClient`:
+The core idea is simple: make the correct thing easy and the wrong thing impossible (or at least very hard). By replacing raw `*gorm.DB` access with a scoped `QueryClient`:
 
-- Every query is scoped by default — no discipline required.
+- Every query is scoped by default: no more relying in pure discipline.
 - The compiler prevents passing the wrong type.
 - A linter or package boundary prevents bypassing the pattern.
 - Unscoped access is explicit and easy to audit.
