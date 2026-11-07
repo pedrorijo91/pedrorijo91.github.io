@@ -117,6 +117,7 @@ The service layer passes the `QueryClient` along:
 ```go
 type ProjectService struct {
     projectRepo *ProjectRepository
+    auditRepo   *AuditRepository
 }
 
 func (s *ProjectService) GetProject(qc *QueryClient, projectID string) (*Project, error) {
@@ -134,7 +135,7 @@ GORM transactions give you a new `*gorm.DB` instance, so the scoped `QueryClient
 func (qc *QueryClient) Transaction(fn func(txQC *QueryClient) error) error {
     return qc.db.Transaction(func(tx *gorm.DB) error {
         txQC := &QueryClient{
-            db:    tx,
+            db:    tx.Where("organization_id = ?", qc.orgID),
             orgID: qc.orgID,
         }
         return fn(txQC)
@@ -162,7 +163,7 @@ func (s *ProjectService) CreateProject(qc *QueryClient, req CreateProjectRequest
 
 ### Enforcing the pattern with a linter
 
-The pattern already gives us structural safety. And even tough it would be hard for a developer to miss the existing pattern, we can go further. A simple linter rule or a [go-vet analyzer](https://pkg.go.dev/golang.org/x/tools/go/analysis) can flag any repository method that accepts `*gorm.DB` instead of `*QueryClient`. This turns a convention into a compile-time (or CI-time) check.
+The pattern already gives us structural safety. And even though it would be hard for a developer to miss the existing pattern, we can go further. A simple linter rule or a [go-vet analyzer](https://pkg.go.dev/golang.org/x/tools/go/analysis) can flag any repository method that accepts `*gorm.DB` instead of `*QueryClient`. This turns a convention into a compile-time (or CI-time) check.
 
 A minimal approach: use `grep` or `ast` inspection to ensure that no exported function in your `repository` package has a `*gorm.DB` parameter. If your team uses [revive](https://github.com/mgechev/revive) or [golangci-lint](https://golangci-lint.run/), a custom rule can enforce this in CI.
 
@@ -182,7 +183,7 @@ By using a different type (`*UnscopedClient`), repository methods that require t
 
 The core idea is simple: make the correct thing easy and the wrong thing impossible (or at least very hard). By replacing raw `*gorm.DB` access with a scoped `QueryClient`:
 
-- Every query is scoped by default: no more relying in pure discipline.
+- Every query is scoped by default: no more relying on pure discipline.
 - The compiler prevents passing the wrong type.
 - A linter or package boundary prevents bypassing the pattern.
 - Unscoped access is explicit and easy to audit.
