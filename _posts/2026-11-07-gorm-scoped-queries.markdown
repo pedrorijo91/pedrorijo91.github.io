@@ -69,7 +69,7 @@ func NewQueryClient(db *gorm.DB, orgID string) *QueryClient {
 }
 
 func (qc *QueryClient) DB() *gorm.DB {
-    return qc.db
+    return qc.db.Session(&gorm.Session{})
 }
 
 func (qc *QueryClient) OrgID() string {
@@ -172,12 +172,27 @@ A minimal approach: use `grep` or `ast` inspection to ensure that no exported fu
 There are legitimate cases where you need unscoped queries: admin dashboards, background jobs that process data across organizations, or migrations. For those, you can provide a separate, clearly-named constructor:
 
 ```go
+type UnscopedClient struct {
+    db *gorm.DB
+}
+
 func NewUnscopedClient(db *gorm.DB) *UnscopedClient {
     return &UnscopedClient{db: db}
 }
 ```
 
 By using a different type (`*UnscopedClient`), repository methods that require tenant scoping cannot accidentally receive an unscoped client. If a method signature expects `*QueryClient`, passing an `*UnscopedClient` is a compile error. This makes the unscoped path explicit and auditable.
+
+### Caveats
+
+The `QueryClient` pattern catches the most common mistake — forgetting the `WHERE` clause on reads — but GORM has a few behaviors worth knowing about:
+
+- **`Preload` runs separate queries.** GORM does not propagate the root `Where` condition to preloaded associations. If you use `Preload`, you need to add tenant filters to the preload itself or ensure your foreign keys are tenant-consistent.
+- **`Create` ignores `Where` scopes.** The scoped `WHERE` only applies to reads and updates. Inserts go through as-is, so your code must explicitly set the `OrganizationID` on every new record (as we do in the `CreateProject` example with `txQC.OrgID()`).
+- **`Raw` bypasses the scope entirely.** If a repository calls `qc.DB().Raw(...).Scan(...)`, GORM executes the supplied SQL without the pre-applied filter. Raw queries must include the tenant predicate themselves.
+- **`Save` can fall back to an upsert.** When the primary key already exists, `Save` may issue an `INSERT ... ON CONFLICT UPDATE` that bypasses the scoped `WHERE`. Prefer explicit `Updates` with a `RowsAffected` check in tenant-scoped repositories.
+
+None of these invalidate the pattern — they are GORM-specific edges that your team should document alongside the `QueryClient` convention.
 
 ### Conclusion
 
